@@ -8,7 +8,7 @@ function fetchTrend() {
       axios.get(requests.fetchTrending).then((response) => { 
         response.data.results.forEach(function(res) { 
           if(res.original_title != undefined){
-            myTrending.push([res.original_title,res.poster_path])
+            myTrending.push([res.original_title,res.backdrop_path])
           }
         })
       resolve({myTrending});

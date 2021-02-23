@@ -8,7 +8,7 @@ function fetchComedy() {
       axios.get(requests.fetchComedyMovies).then((response) => {
         response.data.results.forEach(function(res) { 
           if(res.original_title != undefined){
-            myComedy.push([res.original_title,res.poster_path])
+            myComedy.push([res.original_title,res.backdrop_path])
           }
         })
       resolve({myComedy});

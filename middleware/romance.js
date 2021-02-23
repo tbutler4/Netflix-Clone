@@ -8,7 +8,7 @@ function fetchRomance() {
       axios.get(requests.fetchRomanceMovies).then((response) => {
         response.data.results.forEach(function(res) { 
           if(res.original_title != undefined){
-            myRomance.push([res.original_title,res.poster_path])
+            myRomance.push([res.original_title,res.backdrop_path])
           }
         })
       resolve({myRomance});

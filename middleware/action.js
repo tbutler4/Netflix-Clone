@@ -8,7 +8,7 @@ function fetchAction() {
       axios.get(requests.fetchActionMovies).then((response) => {
         response.data.results.forEach(function(res) { 
           if(res.original_title != undefined){
-            myAction.push([res.original_title,res.poster_path])
+            myAction.push([res.original_title,res.backdrop_path])
           }
         })
       resolve({myAction});

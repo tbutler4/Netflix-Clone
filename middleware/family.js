@@ -8,7 +8,7 @@ function fetchFamily() {
       axios.get(requests.fetchFamilyMovies).then((response) => {
         response.data.results.forEach(function(res) { 
           if(res.original_title != undefined){
-            myFamily.push([res.original_title,res.poster_path])
+            myFamily.push([res.original_title,res.backdrop_path])
           }
 
         })
