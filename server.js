@@ -1,3 +1,7 @@
+const requests = require('./middleware/requests');
+const axios = require('./middleware/axios');
+const trending = require('./middleware/trending');
+
 require('dotenv').config();
 const express = require('express');
 const layouts = require('express-ejs-layouts');
@@ -40,10 +44,14 @@ app.use((req, res, next) => {
 
   next()
 })
+// grabbing movie data
 
 
-app.get('/', (req, res) => {
-  res.render('index');
+app.get('/', async (req, res) => {
+  const grabData = await trending.fetchTrend()
+  res.render('index', {
+    myTrending: {grabData}
+  });
 });
 
 app.get('/profile', isLoggedIn, (req, res) => {
