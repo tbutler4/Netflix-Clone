@@ -1,5 +1,6 @@
 const axios = require('./axios');
 const requests = require('./requests');
+
 let myTrendingTitle = [];
 let myTrendingPoster = [];
 console.log('inside server', myTrendingTitle,myTrendingPoster)
@@ -15,22 +16,9 @@ function fetchTrend() {
       })
   });
 }
-// setTimeout(function(){ console.log('inside server', myTrendingTitle,myTrendingPoster)}, 3000);
-// myObj = {}
-// fetchTrend().then(response => {
-//   console.log('response', response)
-// })
-// async function init() {
-//   const myObj = await fetchTrend(response)
-// }
-// init()
 
 module.exports = {
-  response: async () => {
-    const val = await fetchTrend()
-    .then(response => response)
-    return val
-  }
+  fetchTrend
 }
 
 // (async function() {

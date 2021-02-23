@@ -1,6 +1,6 @@
 const requests = require('./middleware/requests');
 const axios = require('./middleware/axios');
-const { response, poster, title } = require('./middleware/trending');
+const trending = require('./middleware/trending');
 
 require('dotenv').config();
 const express = require('express');
@@ -44,15 +44,14 @@ app.use((req, res, next) => {
 
   next()
 })
+// grabbing movie data
 
 
-app.get('/', (req, res) => {
-  setTimeout(function(){ 
-    console.log('title',response)
-    // res.render('index', {
-    //   myTrending: myTrending
-    // });
-  }, 3000);
+app.get('/', async (req, res) => {
+  const grabData = await trending.fetchTrend()
+  res.render('index', {
+    myTrending: grabData
+  });
 });
 
 app.get('/profile', isLoggedIn, (req, res) => {
