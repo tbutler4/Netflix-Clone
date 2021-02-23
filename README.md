@@ -1,11 +1,11 @@
-#Project name: Netflix-Clone#
+# Project name: Netflix-Clone
 
-##Group members:##
-Terrence Butler
-Dina Tanashikova
-Anh Vy Le
+## Group members:
+1. Terrence Butler
+2. Dina Tanashikova
+3. Anh Vy Le
 
-##Project description:##
+## Project description:
 **Netflix-Clone** is a movie application that allows users to discover new movies. Our MVP is to create a web application that users can search movies by keywords to get movie’s information such as poster, rating, trailer, and synopsis. Users can also register to the app to access more features. When users login to the app, they are able to add movies to their watchlists if they decide to watch these movies later.
 
 ##Wireframes:##
@@ -24,9 +24,9 @@ https://xd.adobe.com/view/7d108d22-579c-43cb-90e7-a757920979f3-2843/
 
 <img src = "images/watch-movie.png">
 
-**Signup/ login page**
+**Signup/login page**
 
-<img src = "images/signin-signuup.png">
+<img src = "images/signin-signup.png">
 
 **Delete account page**
 
@@ -36,7 +36,7 @@ https://xd.adobe.com/view/7d108d22-579c-43cb-90e7-a757920979f3-2843/
 
 <img src = "images/watchlist.png">
 
-##User stories:##
+## User stories:
 - As a user, I’m able to register to the web application
 - As a user, I’m able to delete my account from the web application
 - As a user, I’m able to log in to the web application
@@ -45,7 +45,7 @@ https://xd.adobe.com/view/7d108d22-579c-43cb-90e7-a757920979f3-2843/
 - As a user, I’m able to add  a movie to my watchlists
 - As a user, I’m able to delete a movie from my watchlists
 
-##Database models:##
+## Database models:
 
 **A list of all the entities, its attributes and data types**
 - Users: userId (PK, integer), userNname (varchar 255), userEmail (varchar 255), userPassword (varchar 255)
@@ -59,7 +59,7 @@ https://xd.adobe.com/view/7d108d22-579c-43cb-90e7-a757920979f3-2843/
 
 <img src = "images/erd.png">
 
-##Bonus features:##
+## Bonus features:
 - Users can modify their account such as change username, email or password.
 - Users can rate the movies
 - Users can see the top 10 popular movies
