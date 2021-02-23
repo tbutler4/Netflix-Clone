@@ -10,10 +10,7 @@ nav ul li {
 h1 {
   color: chartreuse;
 }
-.container {
-  /* display: flex;
-  flex-direction: column; */
-}
+/* Movie Rows */
 .row {
   margin-left: 20px;
 }

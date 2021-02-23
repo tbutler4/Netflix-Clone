@@ -1,14 +1,18 @@
 <div class="banner">
   <% const banner = myBanner.MyMovies.slice(0, 20) %>
-  <% console.log('banner is: ', banner[Math.floor(Math.random() * banner.length - 1)]) %>
+  <% let randomMovie = banner[Math.floor(Math.random() * banner.length - 1)] %>
   <header class="banner"
-  style="">
+  style="background-size: cover;background-image: url('https://image.tmdb.org/t/p/original<%= randomMovie[1] %>');background-position: center center;">
     <div class="banner_contents">
-
+      <h1><%= randomMovie[0] %></h1>
+      <div class="banner_buttons">
+        <buttons class="banner_buttons">Play</buttons>
+        <buttons class="banner_buttons">My List</buttons>
+      </div>
     </div>
-    <!-- title -->
-    <!-- 2 buttons -->
-    <!-- description -->
+    <h1 class="banner_description">
+      <%= randomMovie[2] %>
+    </h1>
   </header>
 </div>
 <div class="container">
@@ -43,7 +47,7 @@
     </div>
   </div>
   <div class="contain">
-    <div class="row"></div>
+    <div class="row">
     <h1>Top Rated</h1>
       <div class="row_posters">
         <% myTopRated.myTopRated.slice(0, 20).forEach(x=> { %>
