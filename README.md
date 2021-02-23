@@ -1,107 +1,66 @@
-# Express Authentication
+#Project name: Netflix-Clone#
 
-Express authentication template using Passport + flash messages + custom middleware
+##Group members:##
+Terrence Butler
+Dina Tanashikova
+Anh Vy Le
 
-## What it includes
+##Project description:##
+**Netflix-Clone** is a movie application that allows users to discover new movies. Our MVP is to create a web application that users can search movies by keywords to get movie’s information such as poster, rating, trailer, and synopsis. Users can also register to the app to access more features. When users login to the app, they are able to add movies to their watchlists if they decide to watch these movies later.
 
-* Sequelize user model / migration
-* Settings for PostgreSQL
-* Passport and passport-local for authentication
-* Sessions to keep user logged in between pages
-* Flash messages for errors and successes
-* Passwords that are hashed with BCrypt
-* EJS Templating and EJS Layouts
+##Wireframes:##
+Our group uses Adobe XD to build our wireframes for this project. 
+https://xd.adobe.com/view/7d108d22-579c-43cb-90e7-a757920979f3-2843/
 
-### User Model
+**Homepage**
 
-| Column Name | Data Type | Notes |
-| --------------- | ------------- | ------------------------------ |
-| id | Integer | Serial Primary Key, Auto-generated |
-| name | String | Must be provided |
-| email | String | Must be unique / used for login |
-| password | String | Stored as a hash |
-| createdAt | Date | Auto-generated |
-| updatedAt | Date | Auto-generated |
+<img src = "images/homepage.png">
 
-### Default Routes
+**Home/search-result page**
 
-| Method | Path | Location | Purpose |
-| ------ | ---------------- | -------------- | ------------------- |
-| GET | / | server.js | Home page |
-| GET | /auth/login | auth.js | Login form |
-| GET | /auth/signup | auth.js | Signup form |
-| POST | /auth/login | auth.js | Login user |
-| POST | /auth/signup | auth.js | Creates User |
-| GET | /auth/logout | auth.js | Removes session info |
-| GET | /profile | server.js | Regular User Profile |
+<img src = "images/search-results.png">
 
-## Steps To Use
+**Watch movie page**
 
-#### 1. Create a new repo on Github and use your 'express-authentication' as the template
+<img src = "images/watch-movie.png">
 
-When we are finished with this boilerplate, we are going to make it a template on Github that will allow us to create a new repo on Github with all this code already loaded in.
-* Go to `github.com` and create a new repository. In the template dropdown, choose this template.
-* Clone your new repo to your local machine
-* Get Codin'!
+**Signup/ login page**
 
-#### 2. Delete any .keep files
+<img src = "images/signin-signuup.png">
 
-The `.keep` files are there to maintain the file structure of the auth. If there is a folder that has nothing in it, git won't add it. The dev work around is to add a file to it that has nothing in it, just forces git to keep the folder so we can use it later.
+**Delete account page**
 
-#### 3. Install node modules from the package.json
+<img src = "images/delete-account.png">
 
-```
-npm install
-```
+**User’s watch lists page**
 
-(Or just `npm i` for short)
+<img src = "images/watchlist.png">
 
-#### 4. Customize with new project name
+##User stories:##
+- As a user, I’m able to register to the web application
+- As a user, I’m able to delete my account from the web application
+- As a user, I’m able to log in to the web application
+- As a user, I’m able to log out of the web application
+- As a user, I’m able to search “keyword” to find movie on search bar
+- As a user, I’m able to add  a movie to my watchlists
+- As a user, I’m able to delete a movie from my watchlists
 
-Remove defaulty type stuff. Some areas to consider are:
+##Database models:##
 
-* Title in `layout.ejs`
-* Description/Repo Link in `package.json`
-* Remove boilerplate's README content and replace with new project's readme
+**A list of all the entities, its attributes and data types**
+- Users: userId (PK, integer), userNname (varchar 255), userEmail (varchar 255), userPassword (varchar 255)
+- Watchlists: watchListId (PK, integer), movieId (integer), userId (FK, integer), movie_name (varchar255)
 
-#### 5. Create a new database for the new project
+**Business rules:**
+- A user can add many movies to his/her watch later list
+- The watchlists can only be accessed by the user who creates it
 
-Using the sequelize command line interface, you can create a new database from the terminal.
+**Entity relationship diagram:**
 
-```
-createdb <new_db_name>
-```
+<img src = "images/erd.png">
 
-#### 6. Update `config.json`
-
-* Change the database name
-* Other settings are likely okay, but check username, password, and dialect
-
-#### 7. Check the models and migrations for relevance to your project's needs
-
-For example, if your project requires a birthdate field, then don't add that in there. 
-
-> When changing your models, update both the model and the migration.
-
-#### 8. Run the migrations
-
-```
-sequelize db:migrate
-```
-
-#### 9. Add a `.env` file with the following fields:
-
-* SESSION_SECRET: Can be any random string; usually a hash in production
-* PORT: Usually 3000 or 8000
-
-#### 10. Run server; make sure it works
-
-```
-nodemon
-```
-
-or
-
-```
-node index.js
-```
+##Bonus features:##
+- Users can modify their account such as change username, email or password.
+- Users can rate the movies
+- Users can see the top 10 popular movies
+- Users can see the top rated movies
