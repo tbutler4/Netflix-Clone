@@ -4,9 +4,13 @@
     <h1>NETFLIX ORIGINALS</h1>
     <div class="row">
       <div class="row_posters">
-      <% myOriginals.myOriginals.slice(0, 22).forEach(x=> { %>
+      <% myOriginals.myOriginals.slice(0, 20).forEach(x=> { %>
           <!-- outputs severalrow poster(s) -->
-          <img class="row_poster" src="https://image.tmdb.org/t/p/original<%= x[1] %>" alt="temp" />
+          <img 
+            class="row_poster" 
+            src="https://image.tmdb.org/t/p/original<%= x[1] %>" 
+            alt="temp" 
+          />
           <% }) %>
       </div>
     </div>
