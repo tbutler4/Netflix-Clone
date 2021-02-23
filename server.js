@@ -1,6 +1,8 @@
 const requests = require('./middleware/requests');
 const axios = require('./middleware/axios');
+// fetching requests
 const trending = require('./middleware/trending');
+const originals = require('./middleware/originals');
 
 require('dotenv').config();
 const express = require('express');
@@ -48,9 +50,11 @@ app.use((req, res, next) => {
 
 
 app.get('/', async (req, res) => {
-  const grabData = await trending.fetchTrend()
+  const grabTrending = await trending.fetchTrend()
+  const grabOriginals = await originals.fetchOriginals()
   res.render('index', {
-    myTrending: {grabData}
+    myTrending: grabTrending,
+    myOriginals: grabOriginals
   });
 });
 

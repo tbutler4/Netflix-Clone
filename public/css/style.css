@@ -7,3 +7,25 @@ nav ul li {
 h1 {
   color: chartreuse;
 }
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.row {
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+.row_posters {
+  display: flex;
+}
+.row_poster {
+  object-fit: contain;
+  width: 100%;
+  max-height: 100px;
+  margin-right: 10px;
+  transition: transform 250ms;
+}
+.row_poster:hover {
+  transform: scale(1.08);
+  opacity: 1;
+}
