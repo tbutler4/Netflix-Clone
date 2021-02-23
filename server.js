@@ -9,6 +9,7 @@ const animated = require('./middleware/animated');
 const romance = require('./middleware/romance');
 const comedy = require('./middleware/comedy');
 const action = require('./middleware/action');
+const banner = require('./middleware/banner');
 
 
 require('dotenv').config();
@@ -57,6 +58,7 @@ app.use((req, res, next) => {
 
 
 app.get('/', async (req, res) => {
+  const grabBanner = await banner.fetchBanner()
   const grabTrending = await trending.fetchTrend()
   const grabOriginals = await originals.fetchOriginals()
   const grabTopRated = await topRated.fetchTopRated()
@@ -66,6 +68,7 @@ app.get('/', async (req, res) => {
   const grabComedy = await comedy.fetchComedy()
   const grabAction = await action.fetchAction()
   res.render('index', {
+    myBanner: grabBanner,
     myTrending: grabTrending,
     myOriginals: grabOriginals,
     myTopRated: grabTopRated,
