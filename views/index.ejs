@@ -11,5 +11,11 @@
   
   </div>
 </div>
-<%= myTrending.myTrendingTitle %>
-<%= myTrending.myTrendingPoster %>
+<!-- <% Object.keys(myTrending[0]).forEach(x => { %> -->
+  <!-- <p><%= myTrending[0][x].original_title %></p> -->
+<!-- <% }) %> -->
+<% myTrending[0].then(x => { %>
+  <% x.forEach(y => { %>
+    <%= y.original_title %>
+<%  }) %>
+<% }) %>
