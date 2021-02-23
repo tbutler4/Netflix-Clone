@@ -8,7 +8,7 @@
 ## Project description:
 **Netflix-Clone** is a movie application that allows users to discover new movies. Our MVP is to create a web application that users can search movies by keywords to get movie’s information such as poster, rating, trailer, and synopsis. Users can also register to the app to access more features. When users login to the app, they are able to add movies to their watchlists if they decide to watch these movies later.
 
-##Wireframes:##
+## Wireframes:
 Our group uses Adobe XD to build our wireframes for this project. 
 https://xd.adobe.com/view/7d108d22-579c-43cb-90e7-a757920979f3-2843/
 
