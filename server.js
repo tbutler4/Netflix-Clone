@@ -4,7 +4,10 @@ const axios = require('./middleware/axios');
 const trending = require('./middleware/trending');
 const originals = require('./middleware/originals');
 const family = require('./middleware/family');
-
+const animated = require('./middleware/animated');
+const romance = require('./middleware/romance');
+const comedy = require('./middleware/comedy');
+const action = require('./middleware/action');
 
 
 require('dotenv').config();
@@ -56,10 +59,18 @@ app.get('/', async (req, res) => {
   const grabTrending = await trending.fetchTrend()
   const grabOriginals = await originals.fetchOriginals()
   const grabFamily = await family.fetchFamily()
+  const grabAnimated = await animated.fetchAnimated()
+  const grabRomance = await romance.fetchRomance()
+  const grabComedy = await comedy.fetchComedy()
+  const grabAction = await action.fetchAction()
   res.render('index', {
     myTrending: grabTrending,
     myOriginals: grabOriginals,
-    myFamily: grabFamily
+    myFamily: grabFamily,
+    myAnimated: grabAnimated,
+    myRomance: grabRomance,
+    myComedy: grabComedy,
+    myAction: grabAction
   });
 });
 

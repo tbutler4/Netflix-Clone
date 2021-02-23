@@ -41,6 +41,50 @@
       </div>
     </div>
   </div>
+  <div class="contain">
+    <h1>Animated Movies</h1>
+    <div class="row">
+      <div class="row_posters">
+        <% myAnimated.myAnimated.forEach(x=> { %>
+          <!-- outputs severalrow poster(s) -->
+          <img class="row_poster" src="https://image.tmdb.org/t/p/original<%= x[1] %>" alt="temp" />
+          <% }) %>
+      </div>
+    </div>
+  </div>
+  <div class="contain">
+    <h1>Romance Movies</h1>
+    <div class="row">
+      <div class="row_posters">
+        <% myRomance.myRomance.forEach(x=> { %>
+          <!-- outputs severalrow poster(s) -->
+          <img class="row_poster" src="https://image.tmdb.org/t/p/original<%= x[1] %>" alt="temp" />
+          <% }) %>
+      </div>
+    </div>
+  </div>
+  <div class="contain">
+    <h1>Comedy Movies</h1>
+    <div class="row">
+      <div class="row_posters">
+        <% myComedy.myComedy.forEach(x=> { %>
+          <!-- outputs severalrow poster(s) -->
+          <img class="row_poster" src="https://image.tmdb.org/t/p/original<%= x[1] %>" alt="temp" />
+          <% }) %>
+      </div>
+    </div>
+  </div>
+  <div class="contain">
+    <h1>Action Movies</h1>
+    <div class="row">
+      <div class="row_posters">
+        <% myAction.myAction.forEach(x=> { %>
+          <!-- outputs severalrow poster(s) -->
+          <img class="row_poster" src="https://image.tmdb.org/t/p/original<%= x[1] %>" alt="temp" />
+          <% }) %>
+      </div>
+    </div>
+  </div>
 </div>
 
 
