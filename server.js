@@ -3,6 +3,7 @@ const axios = require('./middleware/axios');
 // fetching requests
 const trending = require('./middleware/trending');
 const originals = require('./middleware/originals');
+const topRated = require('./middleware/topRated');
 const family = require('./middleware/family');
 const animated = require('./middleware/animated');
 const romance = require('./middleware/romance');
@@ -58,6 +59,7 @@ app.use((req, res, next) => {
 app.get('/', async (req, res) => {
   const grabTrending = await trending.fetchTrend()
   const grabOriginals = await originals.fetchOriginals()
+  const grabTopRated = await topRated.fetchTopRated()
   const grabFamily = await family.fetchFamily()
   const grabAnimated = await animated.fetchAnimated()
   const grabRomance = await romance.fetchRomance()
@@ -66,6 +68,7 @@ app.get('/', async (req, res) => {
   res.render('index', {
     myTrending: grabTrending,
     myOriginals: grabOriginals,
+    myTopRated: grabTopRated,
     myFamily: grabFamily,
     myAnimated: grabAnimated,
     myRomance: grabRomance,
