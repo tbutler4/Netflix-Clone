@@ -3,6 +3,9 @@ const axios = require('./middleware/axios');
 // fetching requests
 const trending = require('./middleware/trending');
 const originals = require('./middleware/originals');
+const family = require('./middleware/family');
+
+
 
 require('dotenv').config();
 const express = require('express');
@@ -52,9 +55,11 @@ app.use((req, res, next) => {
 app.get('/', async (req, res) => {
   const grabTrending = await trending.fetchTrend()
   const grabOriginals = await originals.fetchOriginals()
+  const grabFamily = await family.fetchFamily()
   res.render('index', {
     myTrending: grabTrending,
-    myOriginals: grabOriginals
+    myOriginals: grabOriginals,
+    myFamily: grabFamily
   });
 });
 

@@ -1,21 +1,21 @@
 const axios = require('./axios');
 const requests = require('./requests');
 
-let myTrending = [];
+let myFamily = [];
 // console.log('inside server', myTrendingTitle,myTrendingPoster)
-function fetchTrend() {
+function fetchFamily() {
   return new Promise((resolve, reject) => {
-      axios.get(requests.fetchTrending).then((response) => { 
+      axios.get(requests.fetchFamilyMovies).then((response) => {
         response.data.results.forEach(function(res) { 
           if(res.original_title != undefined){
-            myTrending.push([res.original_title,res.poster_path])
+            myFamily.push([res.original_title,res.poster_path])
           }
+
         })
-      resolve({myTrending});
-      // console.log('inside server', myTrendingTitle,myTrendingPoster)
+      resolve({myFamily});
       })
   });
 }
 module.exports = {
-  fetchTrend
+  fetchFamily
 }

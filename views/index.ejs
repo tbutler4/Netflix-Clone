@@ -19,7 +19,7 @@
     <h1>Trending Now</h1>
     <div class="row">
       <div class="row_posters">
-      <% myTrending.myTrending.slice(0, 22).forEach(x=> { %>
+      <% myTrending.myTrending.slice(0, 16).forEach(x=> { %>
         <!-- outputs severalrow poster(s) -->
         <img 
           class="row_poster" 
@@ -30,6 +30,17 @@
       </div>
     </div>
   </div>
+  <div class="contain">
+    <h1>Family Movies</h1>
+    <div class="row">
+      <div class="row_posters">
+        <% myFamily.myFamily.slice(0, 16).forEach(x=> { %>
+          <!-- outputs severalrow poster(s) -->
+          <img class="row_poster" src="https://image.tmdb.org/t/p/original<%= x[1] %>" alt="temp" />
+          <% }) %>
+      </div>
+    </div>
+  </div>
 </div>
-<% console.log('here',myOriginals) %>
+
 

@@ -15,7 +15,6 @@ function fetchOriginals() {
       })
   });
 }
-fetchOriginals()
 module.exports = {
   fetchOriginals
 }
