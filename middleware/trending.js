@@ -1,25 +1,22 @@
 const axios = require('./axios');
 const requests = require('./requests');
 
-function fetchRequests(request) {
+let myTrending = [];
+// console.log('inside server', myTrendingTitle,myTrendingPoster)
+function fetchTrend() {
   return new Promise((resolve, reject) => {
-      axios.get(request).then((response) => { 
-      resolve(response.data.results);
+      axios.get(requests.fetchTrending).then((response) => { 
+        response.data.results.forEach(function(movie, i) { 
+          myTrending.push([movie.original_title,movie.poster_path])
+        })
+      resolve({myTrending});
       // console.log('inside server', myTrendingTitle,myTrendingPoster)
       })
   });
 }
-let myObj = Object.keys(requests).map(async (x) => {
-  const output = await fetchRequests(requests[x])
-  return output;
-})
 
-
-
-Promise.all
-console.log(myObj)
 module.exports = {
-  myObj
+  fetchTrend
 }
 
 // (async function() {

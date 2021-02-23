@@ -11,11 +11,9 @@
   
   </div>
 </div>
-<!-- <% Object.keys(myTrending[0]).forEach(x => { %> -->
-  <!-- <p><%= myTrending[0][x].original_title %></p> -->
-<!-- <% }) %> -->
-<% myTrending[0].then(x => { %>
-  <% x.forEach(y => { %>
-    <%= y.original_title %>
-<%  }) %>
-<% }) %>
+
+  <% myTrending.grabData.myTrending.slice(0, 22).forEach(x => { %>
+    <h2><%= x[0] %></h2>
+    <img style="width:100px;" src="https://image.tmdb.org/t/p/original<%= x[1] %>" alt="temp">
+  <% }) %>
+
