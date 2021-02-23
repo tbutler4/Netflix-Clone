@@ -50,9 +50,7 @@ app.use((req, res, next) => {
 app.get('/', async (req, res) => {
   const grabData = await trending.fetchTrend()
   res.render('index', {
-    myTrending: {grabData},
-    var2,
-    var3
+    myTrending: {grabData}
   });
 });
 

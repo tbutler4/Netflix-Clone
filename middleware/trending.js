@@ -7,7 +7,9 @@ function fetchTrend() {
   return new Promise((resolve, reject) => {
       axios.get(requests.fetchTrending).then((response) => { 
         response.data.results.forEach(function(movie, i) { 
-          myTrending.push([movie.original_title,movie.poster_path])
+          if(movie.original_title != undefined){
+            myTrending.push([movie.original_title,movie.poster_path])
+          }
         })
       resolve({myTrending});
       // console.log('inside server', myTrendingTitle,myTrendingPoster)
