@@ -6,14 +6,14 @@
   </div>
 </div>
 <div class="row">
-  <h2>Trending Now</h2>
+  <h1>Trending Now</h1>
+  <h2><%= x[0] %></h2>
   <div class="row_posters">
-  
+  <% myTrending.grabData.myTrending.slice(0, 22).forEach(x=> { %>
+    <img style="width:100px;" src="https://image.tmdb.org/t/p/original<%= x[1] %>" alt="temp">
+  <% }) %>
   </div>
 </div>
 
-  <% myTrending.grabData.myTrending.slice(0, 22).forEach(x => { %>
-    <h2><%= x[0] %></h2>
-    <img style="width:100px;" src="https://image.tmdb.org/t/p/original<%= x[1] %>" alt="temp">
-  <% }) %>
+
 
