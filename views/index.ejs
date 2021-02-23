@@ -34,7 +34,7 @@
     <h1>Top Rated</h1>
     <div class="row">
       <div class="row_posters">
-        <% myTopRated.myTopRated.forEach(x=> { %>
+        <% myTopRated.myTopRated.slice(0, 20).forEach(x=> { %>
           <!-- outputs severalrow poster(s) -->
           <img class="row_poster" src="https://image.tmdb.org/t/p/original<%= x[1] %>" alt="temp" />
           <% }) %>
@@ -56,7 +56,7 @@
     <h1>Animated Movies</h1>
     <div class="row">
       <div class="row_posters">
-        <% myAnimated.myAnimated.forEach(x=> { %>
+        <% myAnimated.myAnimated.slice(0, 20).forEach(x=> { %>
           <!-- outputs severalrow poster(s) -->
           <img class="row_poster" src="https://image.tmdb.org/t/p/original<%= x[1] %>" alt="temp" />
           <% }) %>
@@ -67,7 +67,7 @@
     <h1>Romance Movies</h1>
     <div class="row">
       <div class="row_posters">
-        <% myRomance.myRomance.forEach(x=> { %>
+        <% myRomance.myRomance.slice(0, 20).forEach(x=> { %>
           <!-- outputs severalrow poster(s) -->
           <img class="row_poster" src="https://image.tmdb.org/t/p/original<%= x[1] %>" alt="temp" />
           <% }) %>
@@ -78,7 +78,7 @@
     <h1>Comedy Movies</h1>
     <div class="row">
       <div class="row_posters">
-        <% myComedy.myComedy.forEach(x=> { %>
+        <% myComedy.myComedy.slice(0, 20).forEach(x=> { %>
           <!-- outputs severalrow poster(s) -->
           <img class="row_poster" src="https://image.tmdb.org/t/p/original<%= x[1] %>" alt="temp" />
           <% }) %>
@@ -89,7 +89,7 @@
     <h1>Action Movies</h1>
     <div class="row">
       <div class="row_posters">
-        <% myAction.myAction.forEach(x=> { %>
+        <% myAction.myAction.slice(0, 20).forEach(x=> { %>
           <!-- outputs severalrow poster(s) -->
           <img class="row_poster" src="https://image.tmdb.org/t/p/original<%= x[1] %>" alt="temp" />
           <% }) %>

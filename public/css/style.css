@@ -1,3 +1,6 @@
+*{
+  margin:0px;
+}
 nav ul li {
   text-decoration: none;
   display: inline-block;
@@ -18,6 +21,10 @@ h1 {
   display: flex;
   overflow-y: hidden;
   overflow-x: scroll;
+  padding: 20px;
+}
+.row_posters::-webkit-scrollbar {
+  display: none;
 }
 .row_poster {
   object-fit: contain;
