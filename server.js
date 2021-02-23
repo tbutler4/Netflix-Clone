@@ -1,3 +1,7 @@
+const requests = require('./middleware/requests');
+const axios = require('./middleware/axios');
+const { response, poster, title } = require('./middleware/trending');
+
 require('dotenv').config();
 const express = require('express');
 const layouts = require('express-ejs-layouts');
@@ -43,7 +47,12 @@ app.use((req, res, next) => {
 
 
 app.get('/', (req, res) => {
-  res.render('index');
+  setTimeout(function(){ 
+    console.log('title',response)
+    // res.render('index', {
+    //   myTrending: myTrending
+    // });
+  }, 3000);
 });
 
 app.get('/profile', isLoggedIn, (req, res) => {
