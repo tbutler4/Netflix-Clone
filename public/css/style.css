@@ -1,16 +1,21 @@
 * {
   margin: 0px;
 }
+/* Red header */
+header, form {
+  background-color: red;
+}
+
+form {
+  text-align: center;
+}
+
 nav ul li {
   text-decoration: none;
   display: inline-block;
   margin-right: 0.3em;
 }
 
-/* h1 {
-  color: chartreuse;
-} */
-/* Container */
 .container {
   background-color: rgba(0, 0, 0, 0.989);
 }
