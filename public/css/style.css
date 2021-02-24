@@ -1,10 +1,10 @@
-*{
-  margin:0px;
+* {
+  margin: 0px;
 }
 nav ul li {
   text-decoration: none;
   display: inline-block;
-  margin-right: .3em;
+  margin-right: 0.3em;
 }
 
 /* h1 {
@@ -80,7 +80,7 @@ nav ul li {
   height: 7.4rem;
   background-image: linear-gradient(
     transparent,
-    rgb(37,37,37,0.61),
+    rgb(37, 37, 37, 0.61),
     #111,
     rgba(0, 0, 0, 0.989)
   );
