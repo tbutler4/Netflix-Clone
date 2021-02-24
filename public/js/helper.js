@@ -1,1 +1,1 @@
-function singleVideo(){console.log("here")}
+function singleVideo(name){console.log("here", name)}

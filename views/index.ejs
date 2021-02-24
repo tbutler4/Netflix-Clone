@@ -27,12 +27,13 @@
     <h1>NETFLIX ORIGINALS</h1>
       <div class="row_posters">
       <% myOriginals.myOriginals.slice(0, 20).forEach(x=> { %>
+        <!-- <script>console.log('this', '<%= x[0] %>')</script> -->
           <!-- outputs severalrow poster(s) -->
           <img 
             class="row_posterLarge" 
             src="https://image.tmdb.org/t/p/original<%= x[1] %>" 
             alt="temp" 
-            onclick="singleVideo()"
+            onclick="singleVideo('<%= x[0] %>')"
           />
           <% }) %>
       </div>
