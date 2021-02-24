@@ -1,21 +1,20 @@
 const axios = require('./axios');
 const requests = require('./requests');
 
-let myTrending = [];
+let myRomance = [];
 // console.log('inside server', myTrendingTitle,myTrendingPoster)
-function fetchTrend() {
+function fetchRomance() {
   return new Promise((resolve, reject) => {
-      axios.get(requests.fetchTrending).then((response) => { 
+      axios.get(requests.fetchRomanceMovies).then((response) => {
         response.data.results.forEach(function(res) { 
           if(res.original_title != undefined){
-            myTrending.push([res.original_title,res.backdrop_path])
+            myRomance.push([res.original_title,res.backdrop_path])
           }
         })
-      resolve({myTrending});
-      // console.log('inside server', myTrendingTitle,myTrendingPoster)
+      resolve({myRomance});
       })
   });
 }
 module.exports = {
-  fetchTrend
+  fetchRomance
 }

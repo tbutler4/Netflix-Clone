@@ -1,6 +1,16 @@
 const requests = require('./middleware/requests');
 const axios = require('./middleware/axios');
+// fetching requests
 const trending = require('./middleware/trending');
+const originals = require('./middleware/originals');
+const topRated = require('./middleware/topRated');
+const family = require('./middleware/family');
+const animated = require('./middleware/animated');
+const romance = require('./middleware/romance');
+const comedy = require('./middleware/comedy');
+const action = require('./middleware/action');
+const banner = require('./middleware/banner');
+
 
 require('dotenv').config();
 const express = require('express');
@@ -12,54 +22,94 @@ const isLoggedIn = require('./middleware/isLoggedIn')
 
 const app = express();
 
-app.set('view engine', 'ejs');
+app.set("view engine", "ejs");
 
-app.use(require('morgan')('dev'));
+app.use(require("morgan")("dev"));
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + "/public"));
 app.use(layouts);
 
-app.use(session({
-  // a string used to generate a unique 
-  // session ID cookie to share with the browser
-  secret: process.env.SESSION_SECRET,
-  resave: false,
-  saveUninitialized: true 
-}))
+app.use(
+  session({
+    // a string used to generate a unique
+    // session ID cookie to share with the browser
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 
 // the following two lines must appear after configuring the session
-app.use(passport.initialize())
-app.use(passport.session())
+app.use(passport.initialize());
+app.use(passport.session());
 
 // FLASH
-app.use(flash())
+app.use(flash());
 // adds a method to the req object for universal access
 
 // Set up local variables (data that's accessible from anywhere in the app)
 app.use((req, res, next) => {
-  // before every route is loaded, attach flash messages and the 
+  // before every route is loaded, attach flash messages and the
   // current user to res.locals
-  res.locals.alerts = req.flash()
-  res.locals.currentUser = req.user
+  res.locals.alerts = req.flash();
+  res.locals.currentUser = req.user;
 
-  next()
-})
+  next();
+});
 // grabbing movie data
 
 
 app.get('/', async (req, res) => {
-  const grabData = await trending.fetchTrend()
+  const grabBanner = await banner.fetchBanner()
+  const grabTrending = await trending.fetchTrend()
+  const grabOriginals = await originals.fetchOriginals()
+  const grabTopRated = await topRated.fetchTopRated()
+  const grabFamily = await family.fetchFamily()
+  const grabAnimated = await animated.fetchAnimated()
+  const grabRomance = await romance.fetchRomance()
+  const grabComedy = await comedy.fetchComedy()
+  const grabAction = await action.fetchAction()
   res.render('index', {
-    myTrending: {grabData}
+    myBanner: grabBanner,
+    myTrending: grabTrending,
+    myOriginals: grabOriginals,
+    myTopRated: grabTopRated,
+    myFamily: grabFamily,
+    myAnimated: grabAnimated,
+    myRomance: grabRomance,
+    myComedy: grabComedy,
+    myAction: grabAction
   });
 });
+let myMovieRes = []
+app.get("/:search", (req, res)=>{
+  let keyword  = req.query.title
+  axios.get(`${requests.searchMovie}${keyword}`)
+   .then((responseData)=>{
+     const searchData = responseData.data.results
+     searchData.forEach((movie)=>{ 
+       if(movie.poster_path!= null){
+          myMovieRes.push(movie)
+     } 
+  }) 
+  res.render("search", {responseData: myMovieRes})
+  myMovieRes = []
+  })
+})
 
-app.get('/profile', isLoggedIn, (req, res) => {
-  res.render('profile');
+
+app.get("/profile", isLoggedIn, (req, res) => {
+  res.render("profile");
 });
 
-app.use('/auth', require('./routes/auth'));
+app.use("/auth", require("./routes/auth"));
 
-var server = app.listen(process.env.PORT || 3000, ()=> console.log(`🎧You're listening to the smooth sounds of port ${process.env.PORT || 3000}🎧`));
+var server = app.listen(process.env.PORT || 3000, () =>
+  console.log(
+    `🎧You're listening to the smooth sounds of port ${
+      process.env.PORT || 3000
+    }🎧`
+  )
+);
 
 module.exports = server;
