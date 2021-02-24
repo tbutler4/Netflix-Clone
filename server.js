@@ -1,3 +1,17 @@
+const requests = require('./middleware/requests');
+const axios = require('./middleware/axios');
+// fetching requests
+const trending = require('./middleware/trending');
+const originals = require('./middleware/originals');
+const topRated = require('./middleware/topRated');
+const family = require('./middleware/family');
+const animated = require('./middleware/animated');
+const romance = require('./middleware/romance');
+const comedy = require('./middleware/comedy');
+const action = require('./middleware/action');
+const banner = require('./middleware/banner');
+
+
 require('dotenv').config();
 const express = require('express');
 const layouts = require('express-ejs-layouts');
@@ -40,10 +54,30 @@ app.use((req, res, next) => {
 
   next()
 })
+// grabbing movie data
 
 
-app.get('/', (req, res) => {
-  res.render('index');
+app.get('/', async (req, res) => {
+  const grabBanner = await banner.fetchBanner()
+  const grabTrending = await trending.fetchTrend()
+  const grabOriginals = await originals.fetchOriginals()
+  const grabTopRated = await topRated.fetchTopRated()
+  const grabFamily = await family.fetchFamily()
+  const grabAnimated = await animated.fetchAnimated()
+  const grabRomance = await romance.fetchRomance()
+  const grabComedy = await comedy.fetchComedy()
+  const grabAction = await action.fetchAction()
+  res.render('index', {
+    myBanner: grabBanner,
+    myTrending: grabTrending,
+    myOriginals: grabOriginals,
+    myTopRated: grabTopRated,
+    myFamily: grabFamily,
+    myAnimated: grabAnimated,
+    myRomance: grabRomance,
+    myComedy: grabComedy,
+    myAction: grabAction
+  });
 });
 
 app.get('/profile', isLoggedIn, (req, res) => {
