@@ -5,7 +5,7 @@
     "dialect": "postgres"
   },
   "test": {
-    "database": "netflix-clone",
+    "database": "netflix-clone-test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
