@@ -11,3 +11,7 @@ h1 {
 form {
   text-align: center;
 }
+
+.alert{
+  color: red;
+}
