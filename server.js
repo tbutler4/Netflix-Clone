@@ -1,13 +1,24 @@
-const requests = require("./middleware/requests");
-const axios = require("./middleware/axios");
-const trending = require("./middleware/trending");
-require("dotenv").config();
-const express = require("express");
-const layouts = require("express-ejs-layouts");
-const session = require("express-session");
-const flash = require("connect-flash");
-const passport = require("./config/ppConfig");
-const isLoggedIn = require("./middleware/isLoggedIn");
+const requests = require('./middleware/requests');
+const axios = require('./middleware/axios');
+// fetching requests
+const trending = require('./middleware/trending');
+const originals = require('./middleware/originals');
+const topRated = require('./middleware/topRated');
+const family = require('./middleware/family');
+const animated = require('./middleware/animated');
+const romance = require('./middleware/romance');
+const comedy = require('./middleware/comedy');
+const action = require('./middleware/action');
+const banner = require('./middleware/banner');
+
+
+require('dotenv').config();
+const express = require('express');
+const layouts = require('express-ejs-layouts');
+const session = require('express-session');
+const flash = require("connect-flash")
+const passport = require('./config/ppConfig');
+const isLoggedIn = require('./middleware/isLoggedIn')
 
 const app = express();
 
@@ -47,10 +58,27 @@ app.use((req, res, next) => {
 });
 // grabbing movie data
 
-app.get("/", async (req, res) => {
-  const grabData = await trending.fetchTrend();
-  res.render("index", {
-    myTrending: { grabData },
+
+app.get('/', async (req, res) => {
+  const grabBanner = await banner.fetchBanner()
+  const grabTrending = await trending.fetchTrend()
+  const grabOriginals = await originals.fetchOriginals()
+  const grabTopRated = await topRated.fetchTopRated()
+  const grabFamily = await family.fetchFamily()
+  const grabAnimated = await animated.fetchAnimated()
+  const grabRomance = await romance.fetchRomance()
+  const grabComedy = await comedy.fetchComedy()
+  const grabAction = await action.fetchAction()
+  res.render('index', {
+    myBanner: grabBanner,
+    myTrending: grabTrending,
+    myOriginals: grabOriginals,
+    myTopRated: grabTopRated,
+    myFamily: grabFamily,
+    myAnimated: grabAnimated,
+    myRomance: grabRomance,
+    myComedy: grabComedy,
+    myAction: grabAction
   });
 });
 let myMovieRes = []

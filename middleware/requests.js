@@ -8,8 +8,8 @@ const requests = {
   fetchComedyMovies: `/discover/movie?api_key=${API_KEY}&with_genres=35`,
   fetchRomanceMovies: `/discover/movie?api_key=${API_KEY}&with_genres=10749`,
   fetchAnimationMovies: `/discover/movie?api_key=${API_KEY}&with_genres=16`,
-  fetchDocumentaryMovies: `/discover/movie?api_key=${API_KEY}&with_genres=99`,
-  searchMovie: `/search/movie?api_key=${API_KEY}&query=`
+  searchMovie: `/search/movie?api_key=${API_KEY}&query=`,
+  fetchFamilyMovies: `/discover/movie?api_key=${API_KEY}&with_genres=10751`,
 }
 
 module.exports = requests;
