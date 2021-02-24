@@ -1,4 +1,5 @@
 <script src="/js/helper.js" defer ></script>
+<script type="text/javascript" src="https://unpkg.com/movie-trailer"></script>
 <div class="container">
   <!-- Banner -->
   <div class="banner_contain">
@@ -22,7 +23,7 @@
     </header>
   </div>
   <!-- Rows -->
-  <div class="contain">
+  <div class="contain" id="append">
     <div class="row">
     <h1>NETFLIX ORIGINALS</h1>
       <div class="row_posters">
@@ -33,7 +34,7 @@
             class="row_posterLarge" 
             src="https://image.tmdb.org/t/p/original<%= x[1] %>" 
             alt="temp" 
-            onclick="singleVideo('<%= x[0] %>')"
+            onclick="singleVideo('<%= x[2] %>')"
           />
           <% }) %>
       </div>
