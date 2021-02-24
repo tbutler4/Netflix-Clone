@@ -1,0 +1,15 @@
+<div class = "container">
+<% responseData.forEach(function(movie) { %>
+    <div class="well">
+    <p><%= movie.title %></p>
+    <img
+    style="width: 100px"
+    src="https://image.tmdb.org/t/p/original<%= movie.poster_path %>"
+    alt="poster"
+     />
+    <p>Release date:<%=movie.release_date%></p>
+    <p>Rate:<%=movie.vote_average%></p>
+    </div>
+<% }); %>
+</div>
+
