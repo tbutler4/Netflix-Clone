@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      //models.watchlist.belongsTo(models.user)
+      models.watchList.belongsTo(models.user)
     }
   };
   watchList.init({
