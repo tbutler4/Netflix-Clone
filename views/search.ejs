@@ -1,9 +1,9 @@
-<div class = "container">
+<div class = "search-res-main">
 <% responseData.forEach(function(movie) { %>
-    <div class="well">
+    <div class="search-list">
+        
     <p><%= movie.title %></p>
     <img
-    style="width: 100px"
     src="https://image.tmdb.org/t/p/original<%= movie.poster_path %>"
     alt="poster"
      />
