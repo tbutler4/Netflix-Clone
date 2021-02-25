@@ -1,6 +1,6 @@
 // displaying trailer or set video for single item
 function singleVideo(videoId, overview, rating, userId){
-  console.log(rating)
+  console.log(typeof videoId)
   // looking uo the div to append iframe and buttons
   let el = document.querySelector("#append");
   // movie trailer api for finding trailer

@@ -1,5 +1,7 @@
 const requests = require('./middleware/requests');
 const axios = require('./middleware/axios');
+// requiring database
+const db = require("./models");
 // fetching requests
 const trending = require('./middleware/trending');
 const originals = require('./middleware/originals');
@@ -82,7 +84,7 @@ app.get('/', async (req, res) => {
   });
 });
 let myMovieRes = []
-app.get("/:search", (req, res)=>{
+app.get("/search/:search", (req, res)=>{
   let keyword  = req.query.title
   axios.get(`${requests.searchMovie}${keyword}`)
    .then((responseData)=>{
@@ -102,20 +104,22 @@ app.get("/profile", isLoggedIn, (req, res) => {
   res.render("profile");
 });
 
+// POST create a join action
 app.post("/save", (req, res) => {
-  console.log("response: ",req.body)
-  // db.netflix-clone.create({
-  //   name: req.body.name,
-  //   url: req.body.url,
-  //   img: req.body.img,
-  //   weight: req.body.weight,
-  //   ability: req.body.ability,
-  //   hp: req.body.hp,
-  //   attack: req.body.attack,
-  //   defense: req.body.defense
-  // }).then(function(poke) {
-  //   res.redirect('/pokemon')
-  // })
+  db.watchList.create({
+    movieName: req.body.viedoId,
+    userId: req.body.userId
+  }).then(function(join) {
+    res.redirect('/watch_later')
+  })
+});
+// GET favorite movies
+app.get('/watch_later', function(req, res) {
+  // Our database calls are added WITHIN the route as seen here
+  db.watchList.findAll().then((getList) => {
+    // We respond to the original request within the DB callback function and send some data to a template
+    res.render('watchLater', { watchLater: getList })
+  })
 });
 
 app.use("/auth", require("./routes/auth"));
