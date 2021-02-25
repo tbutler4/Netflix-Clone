@@ -1,7 +1,6 @@
 <div class = "search-res-main">
 <% responseData.forEach(function(movie) { %>
-    <div class="search-list">
-        
+ <div class="search-list">
     <p><%= movie.title %></p>
     <img
     src="https://image.tmdb.org/t/p/original<%= movie.poster_path %>"
@@ -9,7 +8,8 @@
      />
     <p>Release date:<%=movie.release_date%></p>
     <p>Rate:<%=movie.vote_average%></p>
-    </div>
+    <button class="btn-add" type="submit">Add to Watchlist</button>
+ </div>
 <% }); %>
 </div>
 
