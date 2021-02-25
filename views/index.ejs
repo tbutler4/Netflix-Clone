@@ -30,33 +30,33 @@
   <!-- Rows -->
   <div class="contain" id="append">
     <div class="row">
-    <h1>NETFLIX ORIGINALS</h1>
+      <h1>Trending Now</h1>
       <div class="row_posters">
-      <% myOriginals.myOriginals.slice(0, 20).forEach(x=> { %>
-        <!-- <script>console.log('this', '<%= x[0] %>')</script> -->
+        <% myTrending.myTrending.slice(0, 16).forEach(x=> { %>
           <!-- outputs severalrow poster(s) -->
           <img 
             class="row_posterLarge" 
             src="https://image.tmdb.org/t/p/original<%= x[1] %>" 
-            alt="temp" 
-            onclick="singleVideo('<%= x[2] %>')"
+            alt="temp"
+            onclick="singleVideo('<%= x[2] %>','<%= x[3] %>','<%= x[4] %>')"
           />
           <% }) %>
       </div>
     </div>
   </div>
   <div class="contain">
-        <div class="row">
-    <h1>Trending Now</h1>
+    <div class="row">
+    <h1>NETFLIX ORIGINALS</h1>
       <div class="row_posters">
-      <% myTrending.myTrending.slice(0, 16).forEach(x=> { %>
-        <!-- outputs severalrow poster(s) -->
-        <img 
-          class="row_poster" 
-          src="https://image.tmdb.org/t/p/original<%= x[1] %>" 
-          alt="temp"
-        />
-      <% }) %>
+      <% myOriginals.myOriginals.slice(0, 20).forEach(x=> { %>
+        <!-- <script>console.log('this', '<%= x[0] %>')</script> -->
+          <!-- outputs severalrow poster(s) -->
+          <img 
+            class="row_poster" 
+            src="https://image.tmdb.org/t/p/original<%= x[1] %>" 
+            alt="temp" 
+          />
+          <% }) %>
       </div>
     </div>
   </div>

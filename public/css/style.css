@@ -111,3 +111,31 @@ nav ul li {
   background-color: #e6e6e6;
   transition: all 0.2s;
 }
+
+/* iframe area styling */
+#iframeDiv {
+  display: flex;
+  justify-content: space-evenly;
+}
+#iframe {
+  width: 60%;
+  height:400px;
+}
+#rightSideDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#description {
+  width: 45rem;
+  line-height: 1.3;
+  font-size: 22px;
+  padding-top: 1rem;
+  max-width: 360px;
+  height: 80px;
+}
+#buttonDiv {
+  display: flex;
+  justify-content: space-evenly;
+  top:0;
+}
