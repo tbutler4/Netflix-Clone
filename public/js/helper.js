@@ -1,8 +1,7 @@
 // displaying trailer or set video for single item
-function watchLaterbutton(userId, videoId, videoName, overview, rating, img){
-  console.log(typeof videoId)
+function watchLaterbutton(divId, userId, videoId, videoName, overview, rating, img){
   // looking uo the div to append iframe and buttons
-  let el = document.querySelector("#append");
+  let el = document.querySelector(`#${divId}`);
   // movie trailer api for finding trailer
   movieTrailer( null, { tmdbId: videoId , id: true } )
     .then( response => {
@@ -107,6 +106,5 @@ function watchLaterbutton(userId, videoId, videoName, overview, rating, img){
         watchLaterForm.appendChild(imgInput)
         watchLaterForm.appendChild(buttonTwo)
       }
-      // console.log( response ) 
     })
 }

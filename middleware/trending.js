@@ -2,7 +2,6 @@ const axios = require('./axios');
 const requests = require('./requests');
 
 let myTrending = [];
-// console.log('inside server', myTrendingTitle,myTrendingPoster)
 function fetchTrend() {
   return new Promise((resolve, reject) => {
       axios.get(requests.fetchTrending).then((response) => { 
@@ -12,7 +11,6 @@ function fetchTrend() {
           }
         })
       resolve({myTrending});
-      // console.log('inside server', myTrendingTitle,myTrendingPoster)
       })
   });
 }
