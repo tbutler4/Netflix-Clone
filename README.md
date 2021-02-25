@@ -49,7 +49,7 @@ https://xd.adobe.com/view/7d108d22-579c-43cb-90e7-a757920979f3-2843/
 
 **A list of all the entities, its attributes and data types**
 - Users: userId (PK, integer), userNname (varchar 255), userEmail (varchar 255), userPassword (varchar 255)
-- Watchlists: watchListId (PK, integer), movieId (integer), userId (FK, integer), movie_name (varchar255)
+- Watchlists: watchListId (PK, integer), userId (FK, integer), movieName (varchar255)
 
 **Business rules:**
 - A user can add many movies to his/her watch later list
