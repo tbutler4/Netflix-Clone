@@ -61,7 +61,7 @@ app.use((req, res, next) => {
 // grabbing movie data
 
 
-app.get('/', async (req, res) => {
+app.get('/dashboard', async (req, res) => {
   const grabBanner = await banner.fetchBanner()
   const grabTrending = await trending.fetchTrend()
   const grabOriginals = await originals.fetchOriginals()

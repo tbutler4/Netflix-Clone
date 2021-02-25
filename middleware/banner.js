@@ -2,7 +2,6 @@ const axios = require('./axios');
 const requests = require('./requests');
 
 let MyMovies = [];
-// console.log('inside server', myTrendingTitle,myTrendingPoster)
 function fetchBanner() {
   return new Promise((resolve, reject) => {
       axios.get(requests.fetchNetflixOriginals).then((response) => {
