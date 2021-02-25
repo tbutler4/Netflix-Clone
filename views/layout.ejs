@@ -8,10 +8,10 @@
     <script src="https://kit.fontawesome.com/db3062e8c0.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <header>
+    <header id="nav_header">
       <nav id="nav">
         <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Logo_Netflix.png" alt="logo"/>
-        <form method="GET" action="/:search">
+        <form id="search_form"method="GET" action="/search/:search">
           <input type="text" name="title" id="title" placeholder="Search ">
           <button class="btn-search" type="submit"><i class="fas fa-search"></i></button>
         </form>

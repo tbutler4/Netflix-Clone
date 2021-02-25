@@ -8,7 +8,7 @@ function fetchOriginals() {
       axios.get(requests.fetchNetflixOriginals).then((response) => {
         response.data.results.forEach(function(res) { 
           if(res.name != undefined){
-            myOriginals.push([res.name,res.poster_path,res.id])
+            myOriginals.push([res.name,res.backdrop_path,res.id,res.overview,res.vote_average])
           }
         })
       resolve({myOriginals});

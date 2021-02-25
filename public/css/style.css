@@ -2,13 +2,13 @@
   margin: 0px;
 }
 /* Red header */
-header {
+#nav_header {
   width: 100%;
   height: 100%;
   display: flex;
   align-items:flex-end;
 }
-header,
+#nav_header,
 form {
   background-color:black;
 }
@@ -18,21 +18,20 @@ nav {
   position: fixed;
   top: 0;
   transition: 0.5s;
-
 }
 .logo {
   left: 0;
     width: 80px;
     padding-left: 20px;
 }
-form {
+#search_form {
   text-align: center;
   position: absolute;
   right: 40%;
   top: 12px;
   background-color: transparent;
 }
-form input {
+#search_form input {
   width: 250px;
   height:30px;
   outline: none;
@@ -42,6 +41,7 @@ form input {
   font-size: 14px;
 }
 .btn-search {
+  background-color: red;
   width: 45px;
   height:30px;
   box-sizing: border-box;
@@ -100,11 +100,11 @@ a:hover {
   color: black;
 }
 
-button {
+/* button {
   background-color: red;
   border-radius: 5px;
   padding: 5px;
-}
+} */
 .container {
   background-color: rgba(0, 0, 0, 0.989);
 }
@@ -199,6 +199,34 @@ button {
   color: #000;
   background-color: #e6e6e6;
   transition: all 0.2s;
+}
+
+/* iframe area styling */
+#iframeDiv {
+  display: flex;
+  justify-content: space-evenly;
+}
+#iframe {
+  width: 60%;
+  height:400px;
+}
+#rightSideDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#description {
+  width: 45rem;
+  line-height: 1.3;
+  font-size: 18px;
+  padding-top: 1rem;
+  max-width: 360px;
+  height: 80px;
+}
+#buttonDiv {
+  display: flex;
+  justify-content: space-evenly;
+  bottom:0;
 }
 .search-res-main {
   padding-top: 100px;
