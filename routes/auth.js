@@ -49,7 +49,7 @@ router.get('/logout', (req, res) => {
   // .logout() is added to the req object by passport
   req.logout()
   req.flash('success', 'You have logged out!')
-  res.redirect('/')
+  res.redirect('/auth/signup')
 })
 
 module.exports = router;
