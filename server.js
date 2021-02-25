@@ -102,6 +102,22 @@ app.get("/profile", isLoggedIn, (req, res) => {
   res.render("profile");
 });
 
+app.post("/save", (req, res) => {
+  console.log("response: ",req.body)
+  // db.netflix-clone.create({
+  //   name: req.body.name,
+  //   url: req.body.url,
+  //   img: req.body.img,
+  //   weight: req.body.weight,
+  //   ability: req.body.ability,
+  //   hp: req.body.hp,
+  //   attack: req.body.attack,
+  //   defense: req.body.defense
+  // }).then(function(poke) {
+  //   res.redirect('/pokemon')
+  // })
+});
+
 app.use("/auth", require("./routes/auth"));
 
 var server = app.listen(process.env.PORT || 3000, () =>

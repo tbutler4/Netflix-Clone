@@ -1,10 +1,10 @@
 // displaying trailer or set video for single item
-function singleVideo(id, overview, rating){
+function singleVideo(videoId, overview, rating, userId){
   console.log(rating)
   // looking uo the div to append iframe and buttons
   let el = document.querySelector("#append");
   // movie trailer api for finding trailer
-  movieTrailer( null, { tmdbId: id , id: true } )
+  movieTrailer( null, { tmdbId: videoId , id: true } )
     .then( response => {
       // if appended items exist delete
       if(document.querySelector("#iframeDiv")){
@@ -44,11 +44,27 @@ function singleVideo(id, overview, rating){
         // creating button div
         let buttonDiv = document.createElement('div'); 
         buttonDiv.setAttribute("id", 'buttonDiv');
+        // creating watch later form
+        let watchLaterForm = document.createElement('form'); 
+        watchLaterForm.setAttribute("method", 'POST');
+        watchLaterForm.setAttribute("action", '/save');
+        // creating watch later form inputs
+        let videoIdInput = document.createElement('input'); 
+        videoIdInput.setAttribute("type", "text");
+        videoIdInput.setAttribute("type", "hidden");
+        videoIdInput.setAttribute("name", 'viedoId');
+        videoIdInput.setAttribute("value", videoId);
+        let userIdInput = document.createElement('input'); 
+        userIdInput.setAttribute("type", "text");
+        userIdInput.setAttribute("type", "hidden");
+        userIdInput.setAttribute("name", 'userId');
+        userIdInput.setAttribute("value", Number(userId));
         // creating buttons
         let buttonOne = document.createElement('button');
         buttonOne.innerHTML = "Watch Now";
         let buttonTwo = document.createElement('button');
         buttonTwo.innerHTML = "Watch Later";
+        buttonTwo.setAttribute("type", "submit");
         // appending items to div
         el.appendChild(iframeDiv)
         iframeDiv.appendChild(iframe)
@@ -57,7 +73,10 @@ function singleVideo(id, overview, rating){
         rightSideDiv.appendChild(rate)
         rightSideDiv.appendChild(buttonDiv)
         buttonDiv.appendChild(buttonOne)
-        buttonDiv.appendChild(buttonTwo)
+        buttonDiv.appendChild(watchLaterForm)
+        watchLaterForm.appendChild(videoIdInput)
+        watchLaterForm.appendChild(userIdInput)
+        watchLaterForm.appendChild(buttonTwo)
       }
       // console.log( response ) 
     })
