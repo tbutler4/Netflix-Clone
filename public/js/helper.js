@@ -1,5 +1,5 @@
 // displaying trailer or set video for single item
-function singleVideo(videoId, overview, rating, userId){
+function watchLaterbutton(userId, videoId, videoName, overview, rating, img){
   console.log(typeof videoId)
   // looking uo the div to append iframe and buttons
   let el = document.querySelector("#append");
@@ -48,17 +48,42 @@ function singleVideo(videoId, overview, rating, userId){
         let watchLaterForm = document.createElement('form'); 
         watchLaterForm.setAttribute("method", 'POST');
         watchLaterForm.setAttribute("action", '/save');
-        // creating watch later form inputs
-        let videoIdInput = document.createElement('input'); 
-        videoIdInput.setAttribute("type", "text");
-        videoIdInput.setAttribute("type", "hidden");
-        videoIdInput.setAttribute("name", 'viedoId');
-        videoIdInput.setAttribute("value", videoId);
+        // creating watch later form userId input
         let userIdInput = document.createElement('input'); 
         userIdInput.setAttribute("type", "text");
         userIdInput.setAttribute("type", "hidden");
         userIdInput.setAttribute("name", 'userId');
         userIdInput.setAttribute("value", Number(userId));
+        // creating watch later form videoId input
+        let videoIdInput = document.createElement('input'); 
+        videoIdInput.setAttribute("type", "text");
+        videoIdInput.setAttribute("type", "hidden");
+        videoIdInput.setAttribute("name", 'viedoId');
+        videoIdInput.setAttribute("value", videoId);
+        // creating watch later form videoName input
+        let videoNameInput = document.createElement('input'); 
+        videoNameInput.setAttribute("type", "text");
+        videoNameInput.setAttribute("type", "hidden");
+        videoNameInput.setAttribute("name", 'videoName');
+        videoNameInput.setAttribute("value", videoName);
+        // creating watch later form overview input
+        let overviewInput = document.createElement('input'); 
+        overviewInput.setAttribute("type", "text");
+        overviewInput.setAttribute("type", "hidden");
+        overviewInput.setAttribute("name", 'overviewInput');
+        overviewInput.setAttribute("value", overview);
+        // creating watch later form rating input
+        let ratingInput = document.createElement('input'); 
+        ratingInput.setAttribute("type", "text");
+        ratingInput.setAttribute("type", "hidden");
+        ratingInput.setAttribute("name", 'ratingInput');
+        ratingInput.setAttribute("value", rating);
+        // creating watch later form img input
+        let imgInput = document.createElement('input'); 
+        imgInput.setAttribute("type", "text");
+        imgInput.setAttribute("type", "hidden");
+        imgInput.setAttribute("name", 'imgInput');
+        imgInput.setAttribute("value", img);
         // creating buttons
         let buttonOne = document.createElement('button');
         buttonOne.innerHTML = "Watch Now";
@@ -74,8 +99,12 @@ function singleVideo(videoId, overview, rating, userId){
         rightSideDiv.appendChild(buttonDiv)
         buttonDiv.appendChild(buttonOne)
         buttonDiv.appendChild(watchLaterForm)
-        watchLaterForm.appendChild(videoIdInput)
         watchLaterForm.appendChild(userIdInput)
+        watchLaterForm.appendChild(videoIdInput)
+        watchLaterForm.appendChild(videoNameInput)
+        watchLaterForm.appendChild(overviewInput)
+        watchLaterForm.appendChild(ratingInput)
+        watchLaterForm.appendChild(imgInput)
         watchLaterForm.appendChild(buttonTwo)
       }
       // console.log( response ) 
