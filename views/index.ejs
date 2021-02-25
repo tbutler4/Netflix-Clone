@@ -1,9 +1,5 @@
-<form method="GET" action="/:search">
-  <input type="text" name="title" id="title" placeholder="Search ">
-  <input type="submit" value="search!">
-</form>
-
 <script src="/js/helper.js" defer ></script>
+<script src="/js/navbar.js" defer ></script>
 <script type="text/javascript" src="https://unpkg.com/movie-trailer"></script>
 <div class="container">
   <!-- Banner -->
@@ -21,7 +17,7 @@
           <buttons class="banner_button">My List</buttons>
         </div>
         <h1 class="banner_description">
-          <%= randomMovie[2] %>
+          <%= randomMovie[2].length > 250 ? randomMovie[2].slice(0, 250) + "..." : randomMovie[2] %>
         </h1>
       </div>
       <div class="banner_fader"></div>
@@ -30,33 +26,33 @@
   <!-- Rows -->
   <div class="contain" id="append">
     <div class="row">
-    <h1>NETFLIX ORIGINALS</h1>
+      <h1>Trending Now</h1>
       <div class="row_posters">
-      <% myOriginals.myOriginals.slice(0, 20).forEach(x=> { %>
-        <!-- <script>console.log('this', '<%= x[0] %>')</script> -->
+        <% myTrending.myTrending.slice(0, 15).forEach(x=> { %>
           <!-- outputs severalrow poster(s) -->
           <img 
             class="row_posterLarge" 
             src="https://image.tmdb.org/t/p/original<%= x[1] %>" 
-            alt="temp" 
-            onclick="singleVideo('<%= x[2] %>')"
+            alt="temp"
+            onclick="watchLaterbutton('1','<%= x[2] %>','<%= x[0] %>','<%= x[3] %>','<%= x[4] %>','<%= x[1] %>')"
           />
           <% }) %>
       </div>
     </div>
   </div>
   <div class="contain">
-        <div class="row">
-    <h1>Trending Now</h1>
+    <div class="row">
+    <h1>NETFLIX ORIGINALS</h1>
       <div class="row_posters">
-      <% myTrending.myTrending.slice(0, 16).forEach(x=> { %>
-        <!-- outputs severalrow poster(s) -->
-        <img 
-          class="row_poster" 
-          src="https://image.tmdb.org/t/p/original<%= x[1] %>" 
-          alt="temp"
-        />
-      <% }) %>
+      <% myOriginals.myOriginals.slice(0, 20).forEach(x=> { %>
+        <!-- <script>console.log('this', '<%= x[0] %>')</script> -->
+          <!-- outputs severalrow poster(s) -->
+          <img 
+            class="row_poster" 
+            src="https://image.tmdb.org/t/p/original<%= x[1] %>" 
+            alt="temp"  
+          />
+          <% }) %>
       </div>
     </div>
   </div>

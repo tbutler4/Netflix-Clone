@@ -10,13 +10,16 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
       models.watchList.belongsTo(models.user)
     }
   };
   watchList.init({
     userId: DataTypes.STRING,
-    movieName: DataTypes.STRING
+    movieId: DataTypes.STRING,
+    movieName: DataTypes.STRING,
+    movieDescription: DataTypes.TEXT,
+    movieRating: DataTypes.STRING,
+    movieImg: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'watchList',

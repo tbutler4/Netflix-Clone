@@ -1,0 +1,20 @@
+<% watchLater.forEach(function(singleVideo) { %>
+  <div style="margin: 100px;">
+    <h2>
+      <%= singleVideo.userId %>
+    </h2>
+    <h2>
+      <%= singleVideo.movieId %>
+    </h2>
+    <h2>
+      <%= singleVideo.movieName %>
+    </h2>
+    <h2>
+      <%= singleVideo.movieDescription %>
+    </h2>
+    <h2>
+      <%= singleVideo.movieRating %>
+    </h2>
+    <img style="width:250px" src="https://image.tmdb.org/t/p/original<%= singleVideo.movieImg %>" " alt="">
+  </div>
+  <% }); %>
