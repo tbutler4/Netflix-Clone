@@ -58,9 +58,14 @@ app.use((req, res, next) => {
 
   next();
 });
+//signup/login page
+app.get('/', (req, res) => {
+  res.render('auth/login');
+});
+
+
+
 // grabbing movie data
-
-
 app.get('/dashboard', async (req, res) => {
   const grabBanner = await banner.fetchBanner()
   const grabTrending = await trending.fetchTrend()
@@ -83,6 +88,8 @@ app.get('/dashboard', async (req, res) => {
     myAction: grabAction
   });
 });
+
+//search movies by keywords
 let myMovieRes = []
 app.get("/search/:search", (req, res)=>{
   let keyword  = req.query.title

@@ -1,10 +1,20 @@
-<div style="margin-top: 350px;"></div>
-<form action="/auth/login" method="POST">
-  <label for="auth-email">Email</label>
-  <input id="auth-email" type="email" name="email"> <br><br>
 
-  <label for="auth-password">Password</label>
-  <input id="auth-password" type="password" name="password"> <br><br>
-
-  <input type="submit" value="Log In">
-</form>
+<div class="form-container">
+  <div class="login-form">
+    <h5 class="h5">Log in</h5>
+    <form action="/auth/login" method="POST">
+      <input id="auth-email" type="email" name="email" placeholder="email"> <br> <br>
+      <input id="auth-password" type="password" name="password" placeholder="password"> <br><br>
+      <input class="reg-btn" type="submit" value="Log In">
+    </form>
+  </div>
+  <div class="signup-form">
+    <h5 class="h5">Sign up</h5>
+    <form action="/auth/signup" method="POST">
+      <input id="new-name" type="text" name="name" placeholder="username"> <br><br>
+      <input id="new-email" type="email" name="email" required placeholder="email"> <br><br>
+      <input id="new-password" type="password" name="password" min="8" placeholder="password"> <br><br>
+      <input class="reg-btn" type="submit" value="Sign up"> 
+    </form>
+  </div>
+</div>
