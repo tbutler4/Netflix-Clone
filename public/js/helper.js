@@ -57,7 +57,7 @@ function watchLaterbutton(divId, userId, videoId, videoName, overview, rating, i
         let videoIdInput = document.createElement('input'); 
         videoIdInput.setAttribute("type", "text");
         videoIdInput.setAttribute("type", "hidden");
-        videoIdInput.setAttribute("name", 'viedoId');
+        videoIdInput.setAttribute("name", 'videoId');
         videoIdInput.setAttribute("value", videoId);
         // creating watch later form videoName input
         let videoNameInput = document.createElement('input'); 
