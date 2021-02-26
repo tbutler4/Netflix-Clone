@@ -3,11 +3,9 @@ const router = express.Router();
 const passport = require('../config/ppConfig')
 const db = require("../models")
 
-router.get('/signup', (req, res) => {
-  res.render('auth/signup');
-});
 
-router.post('/signup', (req, res) => {
+
+router.post('/', (req, res) => {
   // find or create the user
   db.user.findOrCreate({
     where: { email: req.body.email },
@@ -19,7 +17,7 @@ router.post('/signup', (req, res) => {
     if (created) {
       // success
       passport.authenticate('local', {
-        successRedirect: '/',
+        successRedirect: '/dasboard',
         successFlash: 'Account created and user logged in!'
       })(req, res)
     } else {
@@ -34,9 +32,9 @@ router.post('/signup', (req, res) => {
   })
 })
 
-router.get('/login', (req, res) => {
-  res.render('auth/login');
-});
+// router.get('/', (req, res) => {
+//   res.render('auth/login');
+// });
 
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/dashboard',
@@ -49,7 +47,7 @@ router.get('/logout', (req, res) => {
   // .logout() is added to the req object by passport
   req.logout()
   req.flash('success', 'You have logged out!')
-  res.redirect('/auth/signup')
+  res.redirect('/')
 })
 
 module.exports = router;
