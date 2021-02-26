@@ -73,5 +73,17 @@ user.beforeCreate((pendingUser, options) => {
   }
 });
 
+user.beforeBulkUpdate((pendingUpdateUser, options) => {
+  console.log('pendingUpdateUser: ',pendingUpdateUser)
+  // check that a pending user and their pw exists
+  if (pendingUpdateUser && pendingUpdateUser.attributes.password) {
+    // hash the password with bcrypt
+    let hash = bcrypt.hashSync(pendingUpdateUser.attributes.password, 12)
+    console.log('hash: ', hash)
+    // store the hashed password as the user's password in the DB
+    pendingUpdateUser.attributes.password = hash;
+  }
+});
+
   return user;
 };

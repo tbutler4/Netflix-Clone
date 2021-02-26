@@ -24,7 +24,7 @@ function watchLaterbutton(divId, userId, videoId, videoName, overview, rating, i
         // creating overview h1
         let description = document.createElement('h1');
         description.setAttribute("id", 'description');
-        description.textContent = overview;
+        description.textContent = overview.length > 250 ? overview.slice(0, 250) + "..." : overview;
         // creating rating h1
         let rate = document.createElement('h1');
         rate.setAttribute("id", 'rate');
