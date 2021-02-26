@@ -60,7 +60,8 @@ router.put('/update', (req, res) => {
   where: {
     id: parseInt(req.body.id)
   }
-  }).then(([user, updated]) => {
+  }).then((user) => {
+    console.log('user: ', user )
     if (user) {
       // success
       req.flash('success', 'Account succesfully updated!')
