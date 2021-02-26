@@ -1,6 +1,55 @@
 * {
   margin: 0px;
 }
+/* sign up */
+.sign_up_background {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  /* background-color: black; */
+  background-image: url("https://user-images.githubusercontent.com/37936292/109274409-50575f80-77c8-11eb-966a-ed3e64d15b75.jpg");
+}
+.sign_up {
+  padding: 50px 50px 100px 50px;
+  background: rgba(0, 0, 0, 0.8);
+  margin: 100px auto auto auto;
+  color: white;
+  width: 18%;
+  height: 50vh;
+}
+.sign_up form {
+  display: flex;
+  flex-direction: column;
+}
+::placeholder {
+  color: 	#C0C0C0;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color: 	#C0C0C0;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+ color: 	#C0C0C0;
+}
+.sign_up input {
+  height: 33px;
+  background-color: #303030;
+  border-radius: 5px;
+  border: .5px solid black;
+}
+#sign_up_button {
+  color: white;
+  border: .5px solid black;
+  background-color: red;
+  height: 38px;
+}
+.form_extras {
+  display: flex;
+  align-content: flex-start;
+  font-size: 10px;
+}
 /* Red header */
 #nav_header {
   width: 100%;
@@ -8,7 +57,7 @@
   display: flex;
   align-items:flex-end;
 }
-#nav_header,
+#nav_header
 form {
   background-color:black;
 }

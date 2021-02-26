@@ -73,5 +73,15 @@ user.beforeCreate((pendingUser, options) => {
   }
 });
 
+user.beforeUpdate((pendingUser, options) => {
+  // check that a pending user and their pw exists
+  if (pendingUser && pendingUser.password) {
+    // hash the password with bcrypt
+    let hash = bcrypt.hashSync(pendingUser.password, 12)
+    // store the hashed password as the user's password in the DB
+    pendingUser.password = hash;
+  }
+});
+
   return user;
 };

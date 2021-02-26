@@ -1,3 +1,26 @@
+<header id="nav_header">
+   <nav id="nav">
+      <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Logo_Netflix.png" alt="logo" />
+      <form id="search_form" method="GET" action="/search/:search">
+         <input type="text" name="title" id="title" placeholder="Search ">
+         <button class="btn-search" type="submit"><i class="fas fa-search"></i></button>
+      </form>
+      <div class="dropdown">
+         <button class="dropbtn"><i class="fas fa-bars"></i></button>
+         <div class="dropdown-content">
+            <% if (!currentUser) { %>
+               <a href="/auth/signup">Signup</a>
+               <a href="/auth/login">Login</a>
+               <% } else { %>
+                  <a href="/auth/logout">Logout</a>
+                  <a href="/profile">Profile</a>
+                  <% } %>
+         </div>
+      </div>
+
+   </nav>
+</header>
+
 <div class = "search-res-main">
 <% responseData.forEach(function(movie) { %>
  <div class="search-list">

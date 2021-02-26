@@ -1,13 +1,19 @@
- <form action="/auth/signup" method="POST">
-  <label for="new-name">Name</label>
-  <input id="new-name" type="text" name="name"> <br><br>
+<div class="sign_up_background">
+  <div class="sign_up">
+    <form action="/auth/signup" method="POST">
+      <h1>Sign Up</h1> <br>
+      <input id="new-name" type="text" name="name" placeholder="Name"> <br>
 
-  <label for="new-email">Email</label>
-  <input id="new-email" type="email" name="email" required> <br><br>
+      <input id="new-email" type="email" name="email" required placeholder="Email"> <br>
 
-  <label for="new-password">Password</label>
-  <input id="new-password" type="password" name="password" min="8"> <br><br>
+      <input id="new-password" type="password" name="password" min="8" placeholder="Password"> <br>
 
-  <input type="submit" value="Sign up"> 
-</form>
-
+      <input id="sign_up_button" type="submit" value="Sign up"> 
+      <div class="form_extras">
+        <input type="checkbox" id="vehicle1">
+        <label style="margin: auto auto auto 2.2px;" for="vehicle1">Remember me</label>
+        <h3 style="margin: auto 0px auto 0px" >Need help?</h3>
+      </div>
+    </form>
+  </div>
+</div>

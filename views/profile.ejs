@@ -1,5 +1,46 @@
-<h2>Profile Page</h2>
-<h3>User's Watchlist</h3>
-<p>Click here to delete your account</p> 
-<input type="submit" value="Delete Account">
+<header id="nav_header">
+  <nav id="nav">
+    <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Logo_Netflix.png" alt="logo" />
+    <form id="search_form" method="GET" action="/search/:search">
+      <input type="text" name="title" id="title" placeholder="Search ">
+      <button class="btn-search" type="submit"><i class="fas fa-search"></i></button>
+    </form>
+    <div class="dropdown">
+      <button class="dropbtn"><i class="fas fa-bars"></i></button>
+      <div class="dropdown-content">
+        <% if (!currentUser) { %>
+          <a href="/auth/signup">Signup</a>
+          <a href="/auth/login">Login</a>
+          <% } else { %>
+            <a href="/auth/logout">Logout</a>
+            <a href="/profile">Profile</a>
+            <% } %>
+      </div>
+    </div>
 
+  </nav>
+</header>
+
+
+<div style="margin-top: 200px;"></div>
+<h2>Profile Page</h2>
+<h2>Update Information</h2>
+<form style="background-color: white;" method="POST" action="/auth/update?_method=PUT">
+  <label for="current-name">Name</label>
+  <input id="current-name" type="text" name="name"> <br><br>
+  
+  <label for="current-email">Email</label>
+  <input id="current-email" type="email" name="email" required> <br><br>
+
+  <label for="current-password">Password</label>
+  <input id="current-password" type="password" name="password" required> <br><br>
+  
+  <input id="current-id" type="hidden" name="id" value="<%= currentUser.id %>"> <br><br>
+
+  <input type="submit" value="Update">
+</form>
+<p>Click here to delete your account</p>
+<form method="POST" action="/auth/<%= currentUser.id %>/?_method=DELETE">
+  <input id="current-id" type="hidden" name="id" value="<%= currentUser.id %>">
+  <input type="submit" value="Delete Account">
+</form>
