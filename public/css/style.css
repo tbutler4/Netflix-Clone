@@ -2,6 +2,13 @@
   margin: 0px;
 }
 /* sign up */
+#netflix_logo {
+  width: 250px;
+  position: absolute;
+  left: 0px;
+  top: -30px;
+  z-index: 1;
+}
 .sign_up_background {
   width: 100%;
   height: 100vh;
