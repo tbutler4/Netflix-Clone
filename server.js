@@ -21,6 +21,8 @@ const session = require('express-session');
 const flash = require("connect-flash")
 const passport = require('./config/ppConfig');
 const isLoggedIn = require('./middleware/isLoggedIn')
+const methodOverride = require('method-override');
+
 
 const app = express();
 
@@ -30,7 +32,7 @@ app.use(require("morgan")("dev"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + "/public"));
 app.use(layouts);
-
+app.use(methodOverride('_method'))
 app.use(
   session({
     // a string used to generate a unique
@@ -115,7 +117,7 @@ app.get("/profile", isLoggedIn, (req, res) => {
 app.post("/save", (req, res) => {
   db.watchList.create({
     userId: req.body.userId,
-    movieId: req.body.viedoId,
+    movieId: req.body.videoId,
     movieName: req.body.videoName,
     movieDescription: req.body.overviewInput,
     movieRating: req.body.ratingInput,
@@ -133,7 +135,10 @@ app.get('/watch_later', function(req, res) {
   })
 });
 
+
 app.use("/auth", require("./routes/auth"));
+app.use("/deleteMovie", require("./routes/deleteMovie"));
+
 
 var server = app.listen(process.env.PORT || 3000, () =>
   console.log(

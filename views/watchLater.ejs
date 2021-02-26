@@ -26,7 +26,10 @@
       <h2>
         <%= singleVideo.movieRating %>
       </h2>
-      <img style="width:250px" src="https://image.tmdb.org/t/p/original<%= singleVideo.movieImg %>" " alt="">
+      <img style="width:250px" src="https://image.tmdb.org/t/p/original<%= singleVideo.movieImg %>"  alt="">
+      <form class="delete-btn-form" method="POST" action="/watch_later/<%=singleVideo.Id %>/?_method=DELETE">
+        <button class="delete-btn" type="submit">Delete from favorites</button>
+      </form>
     </div>
   <% }  %>
 <% }); %>

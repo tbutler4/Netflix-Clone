@@ -286,3 +286,15 @@ a:hover {
   border:none;
   border-radius: 5px;
 }
+
+.delete-btn-form{
+  background-color: transparent;
+}
+
+.delete-btn{
+  background-color: red;
+  padding:12px;
+  border:none;
+  border-radius: 5px;
+  color:white;
+}
