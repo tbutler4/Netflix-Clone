@@ -1,22 +1,20 @@
 <link rel="stylesheet" href="/css/watchlist.css">
 
 <% watchLater.forEach(function(singleVideo) { %>
-  <div style="margin: 100px 300px 0 300px;">
-    <h2>
-      <%= singleVideo.userId %>
-    </h2>
-    <h2>
-      <%= singleVideo.movieId %>
-    </h2>
-    <h1>
-      <%= singleVideo.movieName %>
-    </h1>
-    <h3>
-      <%= singleVideo.movieDescription %>
-    </h3>
-    <h3>
-     Movie rating: <%= singleVideo.movieRating %>
-    </h3>
-    <img style= "width: 300px" src="https://image.tmdb.org/t/p/original<%= singleVideo.movieImg %>">
+  
+    <div class = box>
+    
+    <div class = "image">
+      <img style= "width: 300px" src="https://image.tmdb.org/t/p/original<%= singleVideo.movieImg %>">
+    </div>
+
+    <div class= "content">
+      <p> <%= singleVideo.userId %> </p>
+      <p> <%= singleVideo.movieId %> </p>
+      <h1> <%= singleVideo.movieName %> </h1>
+      <h3> Movie rating: <%= singleVideo.movieRating %>
+      <br> <%= singleVideo.movieDescription %> </h3>
+    </div>
+    
   </div>
   <% }); %>
