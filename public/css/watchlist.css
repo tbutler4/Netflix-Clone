@@ -1,0 +1,16 @@
+body {
+    background-image: url("https://images.hdqwalls.com/download/dark-red-black-abstract-4k-pa-1600x900.jpg"); 
+}
+
+h1 { 
+    text-align: center;
+}
+
+h1, h2 , h3 {
+    color: azure;
+    margin: 30px 0 30px 0;
+}
+
+img {
+    margin: 0 300px 0 300px;
+}
