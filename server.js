@@ -107,10 +107,11 @@ app.get("/profile", isLoggedIn, (req, res) => {
 
 // POST create a join action
 app.post("/save", (req, res) => {
+  console.log(req.body)
   db.watchList.findOrCreate({
     where: {
       userId: req.body.userId,
-      movieId: req.body.viedoId,
+      movieId: req.body.videoId,
       movieName: req.body.videoName,
       movieDescription: req.body.overviewInput,
       movieRating: req.body.ratingInput,
