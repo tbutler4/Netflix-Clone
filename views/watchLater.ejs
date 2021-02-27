@@ -1,6 +1,7 @@
+<link rel="stylesheet" href="/css/watchlist.css">
 <header id="nav_header">
   <nav id="nav">
-    <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Logo_Netflix.png" alt="logo" />
+    <img id="netflix_logo" src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png" alt="">
     <form id="search_form" method="GET" action="/search/:search">
       <input type="text" name="title" id="title" placeholder="Search ">
       <button class="btn-search" type="submit"><i class="fas fa-search"></i></button>
@@ -23,22 +24,17 @@
 
 <% watchLater.forEach(function(singleVideo) { %>
   <% if(currentUser.id.toString() === singleVideo.userId) { %>
-    <div style="margin: 100px;">
-      <h2>
-        <%= singleVideo.movieName %>
-      </h2>
-      <h2>
-        <%= singleVideo.movieDescription %>
-      </h2>
-      <h2>
-        <%= singleVideo.movieRating %>
-      </h2>
+    <div class = "box">
       <img style="width:250px" src="https://image.tmdb.org/t/p/original<%= singleVideo.movieImg %>" alt="">
+      <h1> <%= singleVideo.movieName %> </h1>
+      <h3> Rating: <%= singleVideo.movieRating %>
+      <br><br> <%= singleVideo.movieDescription %> </h3> 
       <form method="POST" action="/watch-later?_method=DELETE">
         <input type="hidden" name="movieId" value="<%=singleVideo.movieId%>"/>
         <input type="hidden" name="userId" value="<%=singleVideo.userId%>"/>
         <button class="btn-delete-movie" type="submit">Delete from Watchlist</button>
       </form>
     </div>
-  <% }  %>
+  <% } %>
 <% }); %>
+

@@ -1,0 +1,20 @@
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://images.hdqwalls.com/download/dark-red-black-abstract-4k-pa-1600x900.jpg"); 
+    font-family: sans-serif;
+}
+
+.box {
+    text-align: center;
+    color: azure;
+    margin: 100px 0 100px 0;
+}
+
+h1 {
+    margin: 20px auto;
+}
+
+h3 {
+    text-align: left;
+    margin: 0 auto;
+    width: 800px;
+}
