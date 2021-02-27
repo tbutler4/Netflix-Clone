@@ -107,9 +107,7 @@ app.get("/profile", isLoggedIn, (req, res) => {
 
 // POST go to watch now view
 app.post("/watch", (req, res) => {
-  console.log(req.body)
-  
-    res.render('watch')
+    res.render('watch',{watchNowInput: req.body.watchNowInput})
   // })
 });
 
