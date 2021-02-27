@@ -1,20 +1,24 @@
 body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://images.hdqwalls.com/download/dark-red-black-abstract-4k-pa-1600x900.jpg"); 
     font-family: sans-serif;
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+    background-position: center;
 }
 
 .box {
-    text-align: center;
+    margin: 100px 50px 50px 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 3em;
+    grid-auto-rows: auto;
     color: azure;
-    margin: 100px 0 100px 0;
 }
 
 h1 {
     margin: 20px auto;
 }
 
-h3 {
-    text-align: left;
-    margin: 0 auto;
-    width: 800px;
-}
+form {
+    margin-top: 20px;
+} 
