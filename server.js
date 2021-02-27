@@ -105,6 +105,14 @@ app.get("/profile", isLoggedIn, (req, res) => {
   res.render("profile");
 });
 
+// POST go to watch now view
+app.post("/watch", (req, res) => {
+  console.log(req.body)
+  
+    res.render('watch')
+  // })
+});
+
 // POST create a join action
 app.post("/watch-later", (req, res) => {
   console.log(req.body)

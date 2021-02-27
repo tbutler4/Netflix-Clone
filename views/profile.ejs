@@ -1,6 +1,9 @@
+<link rel="stylesheet" href="/css/watchlist.css">
 <header id="nav_header">
   <nav id="nav">
-    <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Logo_Netflix.png" alt="logo" />
+    <a href="/dashboard">
+      <img id="netflix_logo" src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png" alt="">
+    </a>
     <form id="search_form" method="GET" action="/search/:search">
       <input type="text" name="title" id="title" placeholder="Search ">
       <button class="btn-search" type="submit"><i class="fas fa-search"></i></button>
@@ -17,30 +20,33 @@
             <% } %>
       </div>
     </div>
-
   </nav>
 </header>
 
 
-<div style="margin-top: 200px;"></div>
-<h2>Profile Page</h2>
-<h2>Update Information</h2>
-<form style="background-color: white;" method="POST" action="/auth/update?_method=PUT">
-  <label for="current-name">Name</label>
-  <input id="current-name" type="text" name="name"> <br><br>
-  
-  <label for="current-email">Email</label>
-  <input id="current-email" type="email" name="email" required> <br><br>
+<div class="profile">
+  <div class="profile_contain">
+    <h2>User Profile</h2><br>
+    <h2>Update Information</h2>
+    <div class="profile_form">
+      <form  method="POST" action="/auth/update?_method=PUT">
+        <input id="current-name" type="text" name="name" placeholder="Name"> <br><br>
+        
+        <input id="current-email" type="email" name="email" required placeholder="Email"> <br><br>
 
-  <label for="current-password">Password</label>
-  <input id="current-password" type="password" name="password" required> <br><br>
-  
-  <input id="current-id" type="hidden" name="id" value="<%= currentUser.id %>"> <br><br>
+        <input id="current-password" type="password" name="password" required placeholder="Password"> <br><br>
+        
+        <input id="current-id" type="hidden" name="id" value="<%= currentUser.id %>">
 
-  <input type="submit" value="Update">
-</form>
-<p>Click here to delete your account</p>
-<form method="POST" action="/auth/<%= currentUser.id %>/?_method=DELETE">
-  <input id="current-id" type="hidden" name="id" value="<%= currentUser.id %>">
-  <input type="submit" value="Delete Account">
-</form>
+        <input type="submit" value="Update">
+      </form>
+      <div class="profile_form_bottom">
+        <h2>Danger Area</h2>
+        <form method="POST" action="/auth/<%= currentUser.id %>/?_method=DELETE">
+          <input id="current-id" type="hidden" name="id" value="<%= currentUser.id %>">
+          <input type="submit" value="Delete Account">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
