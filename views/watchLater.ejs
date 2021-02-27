@@ -36,6 +36,10 @@
         <input type="hidden" name="userId" value="<%=singleVideo.userId%>"/>
         <button class="btn-delete-movie" type="submit">Delete from Watchlist</button>
       </form>
+      <form action="/watch" method="POST">
+        <input type="hidden" name="watchNowInput" value="<%=singleVideo.movieId%>">
+        <button>Watch Now</button>
+      </form>
     </div>
   <% } %>
 <% }); %>

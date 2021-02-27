@@ -7,7 +7,6 @@ function watchNow(videoId) {
       if(document.querySelector("#watchNowDiv")){
         let item = document.getElementById('watchNowDiv');
         item.remove();
-
         // crating div to conain iframe and buttons
         let watchNowDiv = document.createElement('div');    
         watchNowDiv.setAttribute("id", 'watchNowDiv');       
