@@ -18,13 +18,13 @@
             <% } %>
       </div>
     </div>
-
   </nav>
 </header>
 
+<div class = "box">
 <% watchLater.forEach(function(singleVideo) { %>
   <% if(currentUser.id.toString() === singleVideo.userId) { %>
-    <div class = "box">
+    <div class = "movie">
       <img style="width:250px" src="https://image.tmdb.org/t/p/original<%= singleVideo.movieImg %>" alt="">
       <h1> <%= singleVideo.movieName %> </h1>
       <h3> Rating: <%= singleVideo.movieRating %>
