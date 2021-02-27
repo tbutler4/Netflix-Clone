@@ -12,7 +12,7 @@ function watchNow(videoId) {
         watchNowDiv.setAttribute("id", 'watchNowDiv');       
         // crating iframe
         let watchNowIframe = document.createElement('iframe');
-        watchNowIframe.setAttribute("src", `https://www.youtube.com/embed/${response}?autoplay=1`);
+        watchNowIframe.setAttribute("src", `https://www.youtube.com/embed/${response != null? response : "LdOM0x0XDMo"}?autoplay=1`);
         watchNowIframe.setAttribute("id", 'watchNowIframe');
         // deleting omage
         let deleting = document.querySelector('#delete');
@@ -27,7 +27,7 @@ function watchNow(videoId) {
         watchNowDiv.setAttribute("id", 'watchNowDiv');       
         // crating iframe
         let watchNowIframe = document.createElement('iframe');
-        watchNowIframe.setAttribute("src", `https://www.youtube.com/embed/${response}?autoplay=1`);
+        watchNowIframe.setAttribute("src", `https://www.youtube.com/embed/${response != null? response : "LdOM0x0XDMo"}?autoplay=1`);
         watchNowIframe.setAttribute("id", 'watchNowIframe');
         watchNowIframe.style.width = "100%";
         watchNowIframe.style.height = "100vh";

@@ -288,6 +288,9 @@ a:hover {
   );
 }
 /* Banner Buttons */
+.banner_buttons {
+  display: flex;
+}
 .banner_button {
   cursor: pointer;
   color: white;
