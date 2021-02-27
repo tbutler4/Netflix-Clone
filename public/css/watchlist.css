@@ -22,3 +22,10 @@ h1 {
 form {
     margin-top: 20px;
 } 
+.btn-watch-now{
+    background-color: red;
+    color:azure;
+    border:none;
+    border-radius: 3px;
+    padding:10px;
+}
