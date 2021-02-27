@@ -1,4 +1,5 @@
-<% if (alerts.error) { %>
+<link rel="stylesheet" href="/css/alert.css"><% if (alerts.error) { %>
+  
   <% alerts.error.forEach(msg => { %>
     <div class="alert alert-error"><%= msg %></div>
   <% }); %>
