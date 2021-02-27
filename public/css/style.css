@@ -1,6 +1,72 @@
 * {
   margin: 0px;
 }
+/* sign up */
+#netflix_logo {
+  width: 209px;
+  position: absolute;
+  left: 30px;
+  top: -15px;
+}
+.sign_up_background {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  /* background-color: black; */
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://user-images.githubusercontent.com/37936292/109274409-50575f80-77c8-11eb-966a-ed3e64d15b75.jpg");
+}
+.sign_up {
+  padding: 70px 70px 200px 70px;
+  background: rgba(0, 0, 0, 0.8);
+  margin: 80px auto auto auto;
+  color: white;
+  width: 18%;
+}
+.sign_up form {
+  display: flex;
+  flex-direction: column;
+}
+::placeholder {
+  color: 	#C0C0C0;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color: 	#C0C0C0;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+ color: 	#C0C0C0;
+}
+.sign_up input {
+  color: azure;
+  font-size: 17px;
+  height: 44px;
+  background-color: #303030;
+  border-radius: 5px;
+  border: .5px solid black;
+}
+#sign_up_button {
+  color: white;
+  border: .5px solid black;
+  background-color: red;
+  height: 44px;
+}
+.form_extras_one {
+  display: flex;
+  align-content: flex-start;
+  font-size: 10px;
+  color: darkgray;
+  font-size: 12px;
+}
+.form_extras_two {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  font-size: 10px;
+  color: darkgray;
+  font-size: 12px;
+}
 /* Red header */
 #nav_header {
   width: 100%;
@@ -8,7 +74,7 @@
   display: flex;
   align-items:flex-end;
 }
-#nav_header,
+#nav_header
 form {
   background-color:black;
 }
@@ -200,6 +266,7 @@ a:hover {
 #iframeDiv {
   display: flex;
   justify-content: space-evenly;
+  padding-bottom: 20px;
 }
 #iframe {
   width: 60%;

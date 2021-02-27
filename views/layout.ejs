@@ -5,31 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Netflix Clone</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/db3062e8c0.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <header id="nav_header">
-      <nav id="nav">
-        <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Logo_Netflix.png" alt="logo"/>
-        <form id="search_form"method="GET" action="/search/:search">
-          <input type="text" name="title" id="title" placeholder="Search ">
-          <button class="btn-search" type="submit"><i class="fas fa-search"></i></button>
-        </form>
-        <div class="dropdown">
-          <button class="dropbtn"><i class="fas fa-bars"></i></button>
-          <div class="dropdown-content">
-            <% if (!currentUser) { %>
-              <a href="/auth/signup">Signup</a>
-              <a href="/auth/login">Login</a>
-              <% } else { %>
-              <a href="/auth/logout">Logout</a>
-              <a href="/profile">Profile</a>
-              <% } %>
-          </div>
-        </div>
-
-      </nav>
-    </header>
     <%- include("partials/alerts") %>
     <%- body %>
   </body>

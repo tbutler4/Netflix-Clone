@@ -1,8 +1,7 @@
 // displaying trailer or set video for single item
-function watchLaterbutton(userId, videoId, videoName, overview, rating, img){
-  console.log(typeof videoId)
+function watchLaterbutton(divId, userId, videoId, videoName, overview, rating, img){
   // looking uo the div to append iframe and buttons
-  let el = document.querySelector("#append");
+  let el = document.querySelector(`#${divId}`);
   // movie trailer api for finding trailer
   movieTrailer( null, { tmdbId: videoId , id: true } )
     .then( response => {
@@ -25,7 +24,7 @@ function watchLaterbutton(userId, videoId, videoName, overview, rating, img){
         // creating overview h1
         let description = document.createElement('h1');
         description.setAttribute("id", 'description');
-        description.textContent = overview;
+        description.textContent = overview.length > 250 ? overview.slice(0, 250) + "..." : overview;
         // creating rating h1
         let rate = document.createElement('h1');
         rate.setAttribute("id", 'rate');
@@ -58,7 +57,7 @@ function watchLaterbutton(userId, videoId, videoName, overview, rating, img){
         let videoIdInput = document.createElement('input'); 
         videoIdInput.setAttribute("type", "text");
         videoIdInput.setAttribute("type", "hidden");
-        videoIdInput.setAttribute("name", 'viedoId');
+        videoIdInput.setAttribute("name", 'videoId');
         videoIdInput.setAttribute("value", videoId);
         // creating watch later form videoName input
         let videoNameInput = document.createElement('input'); 
@@ -107,6 +106,5 @@ function watchLaterbutton(userId, videoId, videoName, overview, rating, img){
         watchLaterForm.appendChild(imgInput)
         watchLaterForm.appendChild(buttonTwo)
       }
-      // console.log( response ) 
     })
 }
