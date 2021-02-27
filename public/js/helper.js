@@ -46,7 +46,7 @@ function watchLaterbutton(divId, userId, videoId, videoName, overview, rating, i
         // creating watch later form
         let watchLaterForm = document.createElement('form'); 
         watchLaterForm.setAttribute("method", 'POST');
-        watchLaterForm.setAttribute("action", '/save');
+        watchLaterForm.setAttribute("action", '/watch-later');
         // creating watch later form userId input
         let userIdInput = document.createElement('input'); 
         userIdInput.setAttribute("type", "text");

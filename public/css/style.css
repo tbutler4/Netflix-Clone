@@ -87,8 +87,8 @@ nav {
 }
 .logo {
   left: 0;
-    width: 80px;
-    padding-left: 20px;
+  width: 80px;
+  padding-left: 20px;
 }
 #search_form {
   text-align: center;
@@ -96,6 +96,7 @@ nav {
   right: 40%;
   top: 12px;
   background-color: transparent;
+  border:none;
 }
 #search_form input {
   width: 250px;
@@ -111,15 +112,19 @@ nav {
   width: 45px;
   height:30px;
   box-sizing: border-box;
+  border:none;
+  border-radius:5px;
 }
 .dropbtn {
   right:10px;
-  top:20px;
+  top:15px;
   width: 30px;
   height:30px;
   background-color: red;
   color: white;
   position: fixed;
+  border:none;
+  border-radius: 5px;
 
 }
 
@@ -323,3 +328,10 @@ a:hover {
   border-radius: 5px;
 }
 
+.btn-delete-movie{
+  padding: 10px;
+  background-color: red;
+  color:azure;
+  border: none;
+  border-radius: 5px;
+}
