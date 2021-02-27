@@ -106,7 +106,7 @@ app.get("/profile", isLoggedIn, (req, res) => {
 });
 
 // POST create a join action
-app.post("/save", (req, res) => {
+app.post("/watch-later", (req, res) => {
   console.log(req.body)
   db.watchList.findOrCreate({
     where: {
@@ -118,16 +118,32 @@ app.post("/save", (req, res) => {
       movieImg: req.body.imgInput
     }
   }).then(function(join) {
-    res.redirect('/watch_later')
+    res.redirect('/watch-later')
   })
 });
 // GET favorite movies
-app.get('/watch_later', function(req, res) {
+app.get('/watch-later', function(req, res) {
   // Our database calls are added WITHIN the route as seen here
   db.watchList.findAll().then((getList) => {
     // We respond to the original request within the DB callback function and send some data to a template
     res.render('watchLater', { watchLater: getList })
   })
+});
+
+//delete
+
+app.delete ("/watch-later", function (req, res) {
+  console.log("=====", req.body)
+  const movieId = req.body.movieId;
+  const userId = req.body.userId;
+  db.watchList.destroy({
+    where: { movieId: movieId,
+            userId: userId
+          }
+  }).then(function(removed) {
+     res.redirect('/watch-later')
+  });
+  
 });
 
 app.use("/auth", require("./routes/auth"));

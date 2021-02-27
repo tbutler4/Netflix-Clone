@@ -34,6 +34,11 @@
         <%= singleVideo.movieRating %>
       </h2>
       <img style="width:250px" src="https://image.tmdb.org/t/p/original<%= singleVideo.movieImg %>" alt="">
+      <form method="POST" action="/watch-later?_method=DELETE">
+        <input type="hidden" name="movieId" value="<%=singleVideo.movieId%>"/>
+        <input type="hidden" name="userId" value="<%=singleVideo.userId%>"/>
+        <button class="btn-delete-movie" type="submit">Delete from Watchlist</button>
+      </form>
     </div>
   <% }  %>
 <% }); %>
