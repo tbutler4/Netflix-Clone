@@ -136,10 +136,8 @@ app.get('/watch-later', function(req, res) {
   })
 });
 
-//delete
-
+//delete movie from watchlist
 app.delete ("/watch-later", function (req, res) {
-  console.log("=====", req.body)
   const movieId = req.body.movieId;
   const userId = req.body.userId;
   db.watchList.destroy({
