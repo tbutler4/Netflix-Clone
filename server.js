@@ -113,7 +113,7 @@ app.post("/watch", (req, res) => {
 
 // POST create a join action
 app.post("/watch-later", (req, res) => {
-  console.log(req.body)
+  console.log('req.body',req.body)
   db.watchList.findOrCreate({
     where: {
       userId: req.body.userId,
