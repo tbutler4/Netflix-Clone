@@ -34,7 +34,15 @@
       />
       <p>Release date:<%=movie.release_date%></p>
       <p>Rate:<%=movie.vote_average%></p>
-      <button class="btn-add" type="submit">Add to Watchlist</button>
+      <form action="/watch-later" method="POST">
+         <input type="hidden" name="userId" value="<%=currentUser.id%>">
+         <input type="hidden" name="videoId" value="<%=movie.id%>">
+         <input type="hidden" name="videoName" value="<%=movie.original_title%>">
+         <input type="hidden" name="overviewInput" value="<%=movie.overview%>">
+         <input type="hidden" name="ratingInput" value="<%=movie.vote_average%>">
+         <input type="hidden" name="imgInput" value="<%=movie.poster_path%>">
+         <button class="btn-add" type="submit">Add to Watchlist</button>
+      </form>
    </div>
    <% }); %>
    <!-- </div> -->
