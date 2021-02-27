@@ -1,0 +1,31 @@
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://images.hdqwalls.com/download/dark-red-black-abstract-4k-pa-1600x900.jpg"); 
+    font-family: sans-serif;
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.box {
+    margin: 100px 50px 50px 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 3em;
+    grid-auto-rows: auto;
+    color: azure;
+}
+
+h1 {
+    margin: 20px auto;
+}
+
+form {
+    margin-top: 20px;
+} 
+.btn-watch-now{
+    background-color: red;
+    color:azure;
+    border:none;
+    border-radius: 3px;
+    padding:10px;
+}

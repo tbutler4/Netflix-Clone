@@ -1,3 +1,52 @@
-<h2>Profile Page</h2>
+<link rel="stylesheet" href="/css/watchlist.css">
+<header id="nav_header">
+  <nav id="nav">
+    <a href="/dashboard">
+      <img id="netflix_logo" src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png" alt="">
+    </a>
+    <form id="search_form" method="GET" action="/search/:search">
+      <input type="text" name="title" id="title" placeholder="Search ">
+      <button class="btn-search" type="submit"><i class="fas fa-search"></i></button>
+    </form>
+    <div class="dropdown">
+      <button class="dropbtn"><i class="fas fa-bars"></i></button>
+      <div class="dropdown-content">
+        <% if (!currentUser) { %>
+          <a href="/auth/signup">Signup</a>
+          <a href="/auth/login">Login</a>
+          <% } else { %>
+            <a href="/auth/logout">Logout</a>
+            <a href="/profile">Profile</a>
+            <% } %>
+      </div>
+    </div>
+  </nav>
+</header>
 
-<h3>Welcome to your PROFILE</h3>
+
+<div class="profile">
+  <div class="profile_contain">
+    <h2>User Profile</h2><br>
+    <h2>Update Information</h2>
+    <div class="profile_form">
+      <form  method="POST" action="/auth/update?_method=PUT">
+        <input id="current-name" type="text" name="name" placeholder="Name"> <br><br>
+        
+        <input id="current-email" type="email" name="email" required placeholder="Email"> <br><br>
+
+        <input id="current-password" type="password" name="password" required placeholder="Password"> <br><br>
+        
+        <input id="current-id" type="hidden" name="id" value="<%= currentUser.id %>">
+
+        <input class="btn-profile" type="submit" value="Update">
+      </form>
+      <div class="profile_form_bottom">
+        <h2>Danger Area</h2>
+        <form method="POST" action="/auth/<%= currentUser.id %>/?_method=DELETE">
+          <input id="current-id" type="hidden" name="id" value="<%= currentUser.id %>">
+          <input class="btn-profile"type="submit" value="Delete Account">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,26 +3,17 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Authentication</title>
+    <title>Netflix Clone</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/db3062e8c0.js" crossorigin="anonymous"></script>
+    <script src="/js/watch.js" defer></script>
+    <script src="/js/helper.js" defer></script>
+    <script src="/js/navbar.js" defer></script>
+    <script type="text/javascript" src="https://unpkg.com/movie-trailer"></script>
   </head>
   <body>
-    <header>
-      <nav>
-        <ul>
-          <% if (!currentUser) { %>
-            <li><a href="/auth/signup">Signup</a></li>
-            <li><a href="/auth/login">Login</a></li>
-          <% } else { %>
-            <li><a href="/auth/logout">Logout</a></li>
-            <li><a href="/profile">Profile</a></li>
-          <% } %>
-        </ul>
-      </nav>
-    </header>
     <%- include("partials/alerts") %>
-
-    <h1>Authentication</h1>
     <%- body %>
   </body>
 </html>

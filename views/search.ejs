@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="/css/watchlist.css">
+<header id="nav_header">
+   <nav id="nav">
+   <a href="/dashboard">
+      <img id="netflix_logo" src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png" alt="">
+   </a>
+      <form id="search_form" method="GET" action="/search/:search">
+         <input type="text" name="title" id="title" placeholder="Search ">
+         <button class="btn-search" type="submit"><i class="fas fa-search"></i></button>
+      </form>
+      <div class="dropdown">
+         <button class="dropbtn"><i class="fas fa-bars"></i></button>
+         <div class="dropdown-content">
+            <% if (!currentUser) { %>
+               <a href="/auth/signup">Signup</a>
+               <a href="/auth/login">Login</a>
+               <% } else { %>
+                  <a href="/auth/logout">Logout</a>
+                  <a href="/profile">Profile</a>
+                  <% } %>
+         </div>
+      </div>
+   </nav>
+</header>
+
+<div class="search_box">
+   <!-- <div class = "search-res-main"> -->
+   <% responseData.forEach(function(movie) { %>
+   <div class="search-list">
+      <p><%= movie.title %></p>
+      <img
+      class="search-list-img"
+      src="https://image.tmdb.org/t/p/original<%= movie.poster_path %>"
+      alt="poster"
+      />
+      <p>Release date:<%=movie.release_date%></p>
+      <p>Rating:<%=movie.vote_average%></p>
+      <form action="/watch-later" method="POST">
+         <input type="hidden" name="userId" value="<%=currentUser.id%>">
+         <input type="hidden" name="videoId" value="<%=movie.id%>">
+         <input type="hidden" name="videoName" value="<%=movie.original_title%>">
+         <input type="hidden" name="overviewInput" value="<%=movie.overview%>">
+         <input type="hidden" name="ratingInput" value="<%=movie.vote_average%>">
+         <input type="hidden" name="imgInput" value="<%=movie.poster_path%>">
+         <button class="btn-add" type="submit">Add to Watchlist</button>
+      </form>
+      <form action="/watch" method="POST">
+         <input type="hidden" name="watchNowInput" value="<%=movie.id%>">
+         <button>Watch Now</button>
+      </form>
+   </div>
+   <% }); %>
+   <!-- </div> -->
+</div>
