@@ -24,7 +24,6 @@
 </header>
 
 <div class="search_box">
-   <!-- <div class = "search-res-main"> -->
    <% responseData.forEach(function(movie) { %>
    <div class="search-list">
       <p><%= movie.title %></p>
@@ -46,9 +45,8 @@
       </form>
       <form action="/watch" method="POST">
          <input type="hidden" name="watchNowInput" value="<%=movie.id%>">
-         <button>Watch Now</button>
+         <button class="btn-watch-now">Watch Now</button>
       </form>
    </div>
    <% }); %>
-   <!-- </div> -->
 </div>
