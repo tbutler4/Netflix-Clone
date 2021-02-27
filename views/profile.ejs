@@ -38,13 +38,13 @@
         
         <input id="current-id" type="hidden" name="id" value="<%= currentUser.id %>">
 
-        <input type="submit" value="Update">
+        <input class="btn-profile" type="submit" value="Update">
       </form>
       <div class="profile_form_bottom">
         <h2>Danger Area</h2>
         <form method="POST" action="/auth/<%= currentUser.id %>/?_method=DELETE">
           <input id="current-id" type="hidden" name="id" value="<%= currentUser.id %>">
-          <input type="submit" value="Delete Account">
+          <input class="btn-profile"type="submit" value="Delete Account">
         </form>
       </div>
     </div>
