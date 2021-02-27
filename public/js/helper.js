@@ -1,5 +1,5 @@
 // displaying trailer or set video for single item
-function watchLaterbutton(divId, userId, videoId, videoName, overview, rating, img){
+function preview(divId, userId, videoId, videoName, overview, rating, img){
   // looking uo the div to append iframe and buttons
   let el = document.querySelector(`#${divId}`);
   // movie trailer api for finding trailer
@@ -43,6 +43,16 @@ function watchLaterbutton(divId, userId, videoId, videoName, overview, rating, i
         // creating button div
         let buttonDiv = document.createElement('div'); 
         buttonDiv.setAttribute("id", 'buttonDiv');
+        // creating watch now form
+        let watchNow = document.createElement('form'); 
+        watchNow.setAttribute("method", 'POST');
+        watchNow.setAttribute("action", '/watch');
+        // creating watch now form videoId input
+        let watchNowInput = document.createElement('input'); 
+        watchNowInput.setAttribute("type", "text");
+        watchNowInput.setAttribute("type", "hidden");
+        watchNowInput.setAttribute("name", 'watchNowInput');
+        watchNowInput.setAttribute("value", videoId);
         // creating watch later form
         let watchLaterForm = document.createElement('form'); 
         watchLaterForm.setAttribute("method", 'POST');
@@ -96,7 +106,9 @@ function watchLaterbutton(divId, userId, videoId, videoName, overview, rating, i
         rightSideDiv.appendChild(description)
         rightSideDiv.appendChild(rate)
         rightSideDiv.appendChild(buttonDiv)
-        buttonDiv.appendChild(buttonOne)
+        buttonDiv.appendChild(watchNow)
+        watchNow.appendChild(watchNowInput)
+        watchNow.appendChild(buttonOne)
         buttonDiv.appendChild(watchLaterForm)
         watchLaterForm.appendChild(userIdInput)
         watchLaterForm.appendChild(videoIdInput)

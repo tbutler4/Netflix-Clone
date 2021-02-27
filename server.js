@@ -105,9 +105,15 @@ app.get("/profile", isLoggedIn, (req, res) => {
   res.render("profile");
 });
 
+// POST go to watch now view
+app.post("/watch", (req, res) => {
+    res.render('watch',{watchNowInput: req.body.watchNowInput})
+  // })
+});
+
 // POST create a join action
 app.post("/watch-later", (req, res) => {
-  console.log(req.body)
+  console.log('req.body',req.body)
   db.watchList.findOrCreate({
     where: {
       userId: req.body.userId,
