@@ -1,7 +1,7 @@
 <header id="nav_header">
   <nav id="nav">
     <img id="netflix_logo" src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png" alt="">
-    <form id="search_form" method="GET" action="/search/:search">
+    <form id="search_form" method="GET" action="/search/:search" style="background-color: transparent;">
       <input type="text" name="title" id="title" placeholder="Search ">
       <button class="btn-search" type="submit"><i class="fas fa-search"></i></button>
     </form>
@@ -26,6 +26,7 @@
   <div class="banner_contain">
     <% const banner = myBanner.MyMovies.slice(0, 20) %>
     <% let randomMovie = banner[Math.floor(Math.random() * banner.length - 2)] %>
+    <% console.log('randomMovie', randomMovie) %>
     <header class="banner"
     style="background-size: cover;background-image: url('https://image.tmdb.org/t/p/original<%= randomMovie[1] %>');background-position: center center;">
       <div class="banner_contents">
@@ -33,11 +34,23 @@
           <%= randomMovie[0] %>
         </h1>
         <div class="banner_buttons">
-          <buttons class="banner_button">Play</buttons>
-          <buttons class="banner_button">My List</buttons>
+                <form action="/watch" method="POST">
+                  <input type="hidden" name="watchNowInput" value="<%=randomMovie[2]%>">
+                  <button class="banner_button">Play</button>
+                </form>
+                <form action="/watch-later" method="POST">
+                  <input type="hidden" name="userId" value="<%=currentUser.id%>">
+                  <input type="hidden" name="videoId" value="<%=randomMovie[2]%>">
+                  <input type="hidden" name="videoName" value="<%=randomMovie[0]%>">
+                  <input type="hidden" name="overviewInput" value="<%=randomMovie[3]%>">
+                  <input type="hidden" name="ratingInput" value="<%=randomMovie[4]%>">
+                  <input type="hidden" name="imgInput" value="<%=randomMovie[5]%>">
+                  <button class="banner_button" type="submit">My List</button>
+                </form>
+          <!-- <buttons class="banner_button">My List</buttons> -->
         </div>
         <h1 class="banner_description">
-          <%= randomMovie[2].length > 250 ? randomMovie[2].slice(0, 250) + "..." : randomMovie[2] %>
+          <%= randomMovie[3].length > 250 ? randomMovie[3].slice(0, 250) + "..." : randomMovie[3] %>
         </h1>
       </div>
       <div class="banner_fader"></div>

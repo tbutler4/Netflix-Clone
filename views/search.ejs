@@ -29,11 +29,12 @@
    <div class="search-list">
       <p><%= movie.title %></p>
       <img
+      class="search-list-img"
       src="https://image.tmdb.org/t/p/original<%= movie.poster_path %>"
       alt="poster"
       />
       <p>Release date:<%=movie.release_date%></p>
-      <p>Rate:<%=movie.vote_average%></p>
+      <p>Rating:<%=movie.vote_average%></p>
       <form action="/watch-later" method="POST">
          <input type="hidden" name="userId" value="<%=currentUser.id%>">
          <input type="hidden" name="videoId" value="<%=movie.id%>">
@@ -42,6 +43,10 @@
          <input type="hidden" name="ratingInput" value="<%=movie.vote_average%>">
          <input type="hidden" name="imgInput" value="<%=movie.poster_path%>">
          <button class="btn-add" type="submit">Add to Watchlist</button>
+      </form>
+      <form action="/watch" method="POST">
+         <input type="hidden" name="watchNowInput" value="<%=movie.id%>">
+         <button>Watch Now</button>
       </form>
    </div>
    <% }); %>

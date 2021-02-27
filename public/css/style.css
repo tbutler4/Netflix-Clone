@@ -288,6 +288,9 @@ a:hover {
   );
 }
 /* Banner Buttons */
+.banner_buttons {
+  display: flex;
+}
 .banner_button {
   cursor: pointer;
   color: white;
@@ -362,8 +365,8 @@ a:hover {
   border-radius: 10px;
   font-size: large;
 }
-.search-list:hover {
-  transform: scale(1.2);
+.search-list-img:hover {
+  transform: scale(1.1);
 }
 .search-list img {
   width: 30%;
