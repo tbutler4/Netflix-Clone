@@ -43,6 +43,10 @@
          <input type="hidden" name="imgInput" value="<%=movie.poster_path%>">
          <button class="btn-add" type="submit">Add to Watchlist</button>
       </form>
+      <form action="/watch" method="POST">
+         <input type="hidden" name="watchNowInput" value="<%=movie.id%>">
+         <button>Watch Now</button>
+      </form>
    </div>
    <% }); %>
    <!-- </div> -->
