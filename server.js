@@ -60,6 +60,10 @@ app.use((req, res, next) => {
 
   next();
 });
+
+app.get("/", (req, res) => {
+    res.redirect('/auth/signup')
+});
 // grabbing movie data
 
 app.get('/dashboard', async (req, res) => {
@@ -84,6 +88,7 @@ app.get('/dashboard', async (req, res) => {
     myAction: grabAction
   });
 });
+
 let myMovieRes = []
 app.get("/search/:search", (req, res)=>{
   let keyword  = req.query.title
