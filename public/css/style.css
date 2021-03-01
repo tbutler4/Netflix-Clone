@@ -5,7 +5,8 @@
   position: absolute;
   right: 150px;
   top: 15px;
-  color: coral;
+  color: white;
+  background-color: rgb(254, 0, 0, 0.2);
 }
 /* sign up */
 #netflix_logo {
