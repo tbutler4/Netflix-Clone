@@ -1,6 +1,12 @@
 * {
   margin: 0px;
 }
+#hello {
+  position: absolute;
+  right: 150px;
+  top: 15px;
+  color: coral;
+}
 /* sign up */
 #netflix_logo {
   width: 209px;
