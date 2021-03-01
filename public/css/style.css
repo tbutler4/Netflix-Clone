@@ -16,7 +16,7 @@
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://user-images.githubusercontent.com/37936292/109274409-50575f80-77c8-11eb-966a-ed3e64d15b75.jpg");
 }
 .sign_up {
-  padding: 70px 70px 150px 70px;
+  padding: 70px 70px 100px 70px;
   background: rgba(0, 0, 0, 0.8);
   margin: 80px auto auto auto;
   color: white;
