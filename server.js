@@ -150,6 +150,7 @@ app.delete ("/watch-later", function (req, res) {
   
 });
 
+app.use("/", require("./routes/auth"));
 app.use("/auth", require("./routes/auth"));
 
 var server = app.listen(process.env.PORT || 3000, () =>
