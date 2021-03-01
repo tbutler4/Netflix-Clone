@@ -6,11 +6,11 @@ const methodOverride = require('method-override');
 
 router.use(methodOverride('_method'));
 
-router.get('/signup', (req, res) => {
+router.get('/', (req, res) => {
   res.render('auth/signup');
 });
 
-router.post('/signup', (req, res) => {
+router.post('/', (req, res) => {
   // find or create the user
   db.user.findOrCreate({
     where: { email: req.body.email },
@@ -28,12 +28,12 @@ router.post('/signup', (req, res) => {
     } else {
       // user already exists, so we redirect
       req.flash('error', 'Email already exists')
-      res.redirect('/auth/signup')
+      res.redirect('/')
     }
   }).catch(error => {
     // if an error occurs, console log the error message
     req.flash('error', error.message)
-    res.redirect('/auth/signup')
+    res.redirect('/')
   })
 })
 
@@ -82,14 +82,14 @@ router.get('/logout', (req, res) => {
   // .logout() is added to the req object by passport
   req.logout()
   // req.flash('success', 'You have logged out!')
-  res.redirect('/auth/signup')
+  res.redirect('/')
 })
 
 router.delete('/:id', function(req, res) {
   db.user.destroy({
     where: { id: parseInt(req.body.id)}
   }).then(function(removed) {
-    res.redirect('/auth/signup')
+    res.redirect('/')
   });
 });
 
